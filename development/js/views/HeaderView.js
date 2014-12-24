@@ -8,7 +8,7 @@ var HeaderView = Backbone.View.extend({
 
     initialize: function(){
         _.bindAll(this);
-        this.setBackground();
+        this.setBackground("img/image.jpg");
 
         this.bind();
         this.render();
@@ -46,7 +46,7 @@ var HeaderView = Backbone.View.extend({
 
     setBackground : function(url){
         if(url == null){
-            url = "img/image.jpg";
+            url = PlaylistService.getInstance().selectedTrack.get('image');
         }
 
         this.$el.css("background-image","url("+url+")");

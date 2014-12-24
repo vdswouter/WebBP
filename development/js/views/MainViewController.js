@@ -24,7 +24,9 @@ var MainViewController = Backbone.View.extend({
     },
     
     showTrackDetail: function(){
-
+        this.trackDetail = new TrackDetailView();
+        this.header.setBackground();
+        this.addChild(this.trackDetail);
     },
 
     showLoginForm: function(){
