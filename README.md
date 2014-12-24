@@ -1,9 +1,20 @@
-FLOW 0.2
+LMR MVC Pattern - Web example
 ========
 
 Frontend boilerplate/kickstart/utility-belt/... running on [Gulp](http://gulpjs.com/), [Sass](http://sass-lang.com/) & [Compass](http://compass-style.org/).    
 Build with love for everyday use at Little Miss Robot, demo: [http://demo.littlemissrobot.com/FLOW](http://demo.littlemissrobot.com/FLOW/)
 
+Dependencies
+------------
+
+* backbone (Routing, class setup)
+* backbone singleton-extension
+* backbone Class extension
+* handlebars for templating
+* bean.js (event bus)
+* Underscore (Backbone dependency, max version 1.4.4)
+* Jquery Cookie
+* Jquery
 
 Principle
 ---------
