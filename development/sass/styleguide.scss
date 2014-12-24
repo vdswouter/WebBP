@@ -1,0 +1,147 @@
+@charset "utf-8";
+@import "_globals";
+
+
+// -------------------------------------------------------------------
+// :: GENERAL
+// -------------------------------------------------------------------
+
+.sg-title {
+	margin-bottom: 1em;
+}
+
+.sg-header,
+.sg-info-above {
+	margin: 1.5em auto;
+	display: block;
+}
+
+.sg-header h4 {
+	font-family: $font-family-serif;
+	font-size: 1.1em;
+}
+
+.sg-header a,
+.sg-info-above a {
+	color: inherit;
+}
+
+.sg-header small,
+.sg-icons small,
+.sg-animation small,
+.sg-info-above {
+	color: $font-color-light;
+	display: block;
+}
+
+hr + .sg-info-above {
+	margin-top: 0;
+}
+
+
+// -------------------------------------------------------------------
+// :: COLORS
+// -------------------------------------------------------------------
+
+.sg-colors li {
+	min-width: 19%;
+	padding-top: 18%;
+	margin: 0.5%;
+
+	box-shadow: 1px 1px 0.15em $border-color;
+}
+
+.sg-colors small {
+	width: 100%;
+	display: block;
+	line-height: 1.1;
+	padding: 0.5em 0.75em;
+	background: $white;
+}
+
+.sg-black { background: $black; }
+.sg-white { background: $white; }
+
+.sg-ui-red { background: $ui-red; }
+.sg-ui-orange { background: $ui-orange; }
+.sg-ui-yellow { background: $ui-yellow; }
+.sg-ui-green { background: $ui-green; }
+.sg-ui-blue { background: $ui-blue; }
+
+.sg-font-color { background: $font-color; }
+.sg-font-color-medium { background: $font-color-medium; }
+.sg-font-color-light { background: $font-color-light; }
+.sg-border-color { background: $border-color; }
+
+.sg-font-color-white { background: $font-color-white; }
+.sg-font-color-white-medium { background: $font-color-white-medium; }
+.sg-font-color-white-light { background: $font-color-white-light; }
+.sg-border-color-white { background: $border-color-white; }
+
+
+// -------------------------------------------------------------------
+// :: ICONS
+// -------------------------------------------------------------------
+
+.sg-icons li {
+	width: 24%;
+	margin: 0.5em 0.5%;
+	text-align: center;
+}
+
+.sg-icons li:before {
+	font-size: rem($font-size-largest);
+	margin-bottom: 0.2em;
+	display: block;
+}
+
+
+// -------------------------------------------------------------------
+// :: ANIMATIONS
+// -------------------------------------------------------------------
+
+.sg-animation li {
+	width: 22%;
+	margin: 0.5em 1.5%;
+	text-align: center;
+}
+
+.sg-animation span {
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+	border-radius: 50%;
+	display: block;
+	background: $ui-yellow;
+
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
+}
+
+
+// -------------------------------------------------------------------
+// :: BUTTONS
+// -------------------------------------------------------------------
+
+[class*='button'] {
+	margin-top: 1em;
+}
+
+
+// -------------------------------------------------------------------
+// :: LISTS
+// -------------------------------------------------------------------
+
+ol {
+	margin-top: 1em;
+}
+
+
+// -------------------------------------------------------------------
+// :: TOOLTIPS
+// -------------------------------------------------------------------
+
+[class*='tooltip'] {
+	margin: 0.5em;
+}
+

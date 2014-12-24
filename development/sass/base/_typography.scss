@@ -1,0 +1,269 @@
+// -------------------------------------------------------------------
+// :: TYPOGRAPHY
+// -------------------------------------------------------------------
+// - https://github.com/railsware/applepie
+// - http://www.google.com/design/spec/style/typography.html
+// - http://typecast.com/blog/a-more-modern-scale-for-web-typography
+// - http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights
+// - http://modularscale.com
+
+
+// -------------------------------------------------------------------
+// :: CUSTOM WEB FONTS
+// -------------------------------------------------------------------
+// Use font-weight & -style attributes for what they're made for
+// Avoid creating multiple font-families for different weights and/or
+// styles. Keep font declarations DRY and prevent overwrites.
+//
+// BAD:
+//		font-family: "MyCustomFontBold"; 	+	font-weight: normal;
+//		font-family: "MyCustomFontItalic"	+	font-style: normal;
+//
+// GOOD:
+// 		font-family: "MyCustomFont"			+	font-weight: 700; (or bold)
+//		font-family: "MyCustonFont"			+	font-style: italic;
+//
+//
+// SYNTAX:
+// @include FLOW-get-font("FONT-NAME", "PATH/FILE-NAME-WITHOUT-EXTENSION", [font-weight:normal, font-style:normal]);
+//
+// Example:
+// @include FLOW-get-font("MyCustomFont", "../fonts/my-custon-font");
+// @include FLOW-get-font("MyCustomFont", "../fonts/my-custon-font", 200, italic);
+
+
+// -------------------------------------------------------------------
+// :: BASE
+// -------------------------------------------------------------------
+
+html {
+	font-size: rem(16px);
+	@include FLOW-at($mobile) { }
+	@include FLOW-at($tablet) { } 							// 18
+	@include FLOW-at($desktop) { font-size: rem(18px); } 	// 20
+	@include FLOW-at($desktop-xl) { font-size: rem(20px); } // 22
+}
+
+body {
+	color: $font-color;
+	font-family: $font-family-sans;
+	font-size: rem($font-size);
+	line-height: $line-height;
+}
+
+
+// -------------------------------------------------------------------
+// :: NORMALIZE
+// -------------------------------------------------------------------
+// If a margin/padding is set somewhere, remove it from below
+// Keep it DRY and prevent overwrites
+
+//h1,
+//h2,
+h3 {
+	font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+//p,
+h5,
+h6,
+ul,
+ol,
+body {
+	margin: 0;
+}
+
+//ul,
+//ol {
+//	padding-left: 0;
+//}
+
+small {
+	display: inline-block;
+}
+
+
+// -------------------------------------------------------------------
+// :: BLOCK ELEMENTS
+// -------------------------------------------------------------------
+
+h1 {
+	font-size: rem($font-size-largest);
+	line-height: 1.1;
+}
+
+h2 {
+	font-size: rem($font-size-larger);
+	line-height: 1.2;
+}
+
+h3 {
+	font-size: rem($font-size-large);
+	line-height: 1.4;
+}
+
+h4.font-family-serif {
+	font-size: 1.1em;
+}
+
+p + p {
+	margin: 1.5em 0 0 0;
+}
+
+h5 {
+	font-size: rem($font-size-medium);
+}
+
+h6,
+small {
+	font-size: rem($font-size-small);
+	line-height: 1.35;
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// Provide font-specific classes if needed, eg when dealing with
+// multiple font-families you might want to add different font-sizes
+
+//.font-size-largest {
+//	font-size: rem($font-size-largest);
+//	line-height: 1.05;
+//}
+
+//.font-size-larger {
+//	font-size: rem($font-size-larger);
+//	line-height: 1.2;
+//}
+
+//.font-size-large {
+//	font-size: rem($font-size-large);
+//	line-height: 1.35;
+//}
+
+.font-size-medium {
+	font-size: rem($font-size-medium);
+}
+
+//.font-size-small {
+//	font-size: rem($font-size-small);
+//	line-height: 1.35;
+//}
+
+//.font-family-sans {
+//	font-family: $font-family-sans;
+//}
+
+.font-family-serif {
+	font-family: $font-family-serif;
+}
+
+
+// -------------------------------------------------------------------
+// :: DECORATORS
+// -------------------------------------------------------------------
+
+a {
+	color: $primary-color;
+	background: transparent;
+}
+
+a:hover,
+a:active {
+	text-decoration: none;
+	outline: 0;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+// Add decoration for
+// external hyperlinks
+
+.external-link:after {
+	@extend .icon-share:before;
+	color: inherit;
+	font-size: 1.1em;
+	margin-left: 0.2em;
+	margin-top: -0.25em;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+// Highlight text-selection
+// with a yellow background
+
+mark {
+	background: $ui-yellow;
+	padding: 0.05em 0.2em;
+	border-radius: 0.125em;
+}
+
+// Adjust font-color for
+// deleted/updated content
+
+del {
+	color: $font-color-medium;
+}
+
+// A better looking horizontal ruler
+// Inspired by the HTML5 Boilerplate
+// http://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css
+
+hr {
+	border: none;
+	border-top: 1px solid $border-color;
+	box-sizing: content-box;
+	margin: 1.5em 0;
+	//display: block;
+	//padding: 0;
+	//height: 0;
+}
+
+// Blockquote and
+// author name (cite)
+
+blockquote {
+	margin: 0 0 0 3.5em;
+	position: relative;
+}
+
+blockquote:before {
+	content: '\201C';
+	font-family: $font-family-serif;
+	font-weight: 700;
+	font-size: rem(100px);
+	line-height: 0;
+	position: absolute;
+	top: 0.375em;
+	left: -0.55em;
+}
+
+cite {
+	color: $font-color-medium;
+	font-size: rem($font-size-small);
+	letter-spacing: 0.005em;
+	font-style: normal;
+	margin-top: 0.5em;
+	display: block;
+}
+
+cite:before {
+	content: '\2014';
+	margin: 0 0.3em;
+}
+
+// Remove text-shadow in
+// selection highlight
+
+::selection {
+	background: rgba($ui-yellow, 0.5);
+	text-shadow: none;
+}
+

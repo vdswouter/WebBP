@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>{{ SITE }} - Styleguide</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="robots" content="noindex" />
+
+
+	<!-- CSS /////////////////////////////////////////////////////////
+	Using 'gulp-usemin' to concatenate CSS files in production
+	Following a Mobile First approach, all media queries are
+	combined in a separate file which is loaded async (TODO)
+
+	Note: <link ... media="screen and (min-width: 40em)" />
+	only defines when CSS will be applied, it will not block
+	the file from being downloaded
+	-->
+
+	<!-- build:css css/m.css -->
+	<link rel="stylesheet" href="css/main.css" />
+	<!-- endbuild -->
+	<!-- build:css css/mq.css -->
+	<link rel="stylesheet" href="css/main.responsive.css" />
+	<!-- endbuild -->
+	<!-- build:css css/styleguide.css -->
+	<link rel="stylesheet" href="css/styleguide.css" />
+	<!-- endbuild -->
+
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700" />
+
+</head>
+<body>
+
+
+	<!-- COLORS ////////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Colors</h1>
+
+		<div class="sg-header">
+			<h4>Primary colors</h4>
+			<small>
+				Always provide different shades of the primary color, <a href="https://www.google.com/design/spec/style/color.html#color-ui-color-palette" title="Google Material Design" target="_blank">Google Material Design</a> is a good
+				starting point for this. Also note that black should never be just black (#000),
+				adding some warm/cold colors to the mix will make it more contemporary.
+			</small>
+		</div>
+
+		<ul class="sg-colors inline-list">
+			<li class="sg-black"><small>Black<br />#16272A</small></li>
+			<li class="sg-white"><small>White<br />#FFFFFF</small></li>
+		</ul>
+
+		<div class="sg-header">
+			<h4>UI-kit colors</h4>
+			<small>
+				Primary colors for interaction feedback, notifications and states:
+				error (red), warning (orange), highlight (yellow), success (green)
+				and information (blue). UI-kit colors should always be aligned
+				with the tone of voice of the application/brand.
+			</small>
+		</div>
+
+		<ul class="sg-colors inline-list">
+			<li class="sg-ui-red"><small>Red<br />#E51C23</small></li>
+			<li class="sg-ui-orange"><small>Orange<br />#FB8C00</small></li>
+			<li class="sg-ui-yellow"><small>Yellow<br />#FDD835</small></li>
+			<li class="sg-ui-green"><small>Green<br />#20BA20</small></li>
+			<li class="sg-ui-blue"><small>Blue<br />#03A9F4</small></li>
+		</ul>
+
+		<div class="sg-header">
+			<h4>Text colors</h4>
+			<small>
+				Use different shades for text to express the hierarchy of information.
+				Text, icons, borders and dividers will benefit when their color is defined
+				with alpha values, as a result they will work on any background. Text colors
+				are derived from primary black/white colors.
+			</small>
+		</div>
+
+		<ul class="sg-colors inline-list">
+			<li class="sg-font-color"><small>Black<br />Alpha: 92%&nbsp;&nbsp;</small></li>
+			<li class="sg-font-color-medium"><small>Medium black<br />Alpha: 52%</small></li>
+			<li class="sg-font-color-light"><small>Light black<br />Alpha: 24%</small></li>
+			<li class="sg-border-color"><small>Border black<br />Alpha: 16%</small></li>
+		</ul>
+
+		<ul class="sg-colors inline-list">
+			<li class="sg-font-color-white"><small>White<br />Alpha: 100%</small></li>
+			<li class="sg-font-color-white-medium"><small>Medium white<br />Alpha: 64%</small></li>
+			<li class="sg-font-color-white-light"><small>Light white<br />Alpha: 42%</small></li>
+			<li class="sg-border-color-white"><small>Border white<br />Alpha: 24%</small></li>
+		</ul>
+
+	</section>
+
+
+	<!-- TYPOGRAPHY //////////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Typography</h1>
+
+		<div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Using <a href="http://www.awayback.com/revised-font-stack/" title="Revised system font stacks" target="_blank">system fonts</a>
+				over <a href="https://www.google.com/fonts" title="Google fonts" target="_blank">Google fonts</a>
+				will benefit the loading time of the application/site. Note that the use of custom
+				webfonts has a negative impact on loading if not delivered through a
+				<a href="http://en.wikipedia.org/wiki/Content_delivery_network" title="Content Delivery Network" target="_blank">Content Delivery Network</a>,
+				especially on mobile and low-end devices.
+				Less is more, so keep the plethora of font families and weights to a reasonable minimum.
+				<br /><br />
+				Suggested Google fonts:
+				<a href="https://www.google.com/fonts/specimen/Source+Sans+Pro" title="Source Sans Pro" target="_blank">Source Sans Pro</a>,
+				<a href="https://www.google.com/fonts/specimen/Lato" title="Lato" target="_blank">Lato</a>,
+				<a href="https://www.google.com/fonts/specimen/PT+Sans" title="PT Sans" target="_blank">PT Sans</a>,
+				<a href="https://www.google.com/fonts/specimen/Open+Sans" title="Open Sans" target="_blank">Open Sans</a>
+			</small>
+		</div>
+
+
+		<div class="sg-header">
+			<h4>Font stacks</h4>
+			<small>
+				Sans-serif: Helvetica Neue, Helvetica, Arial, sans-serif<br />
+				Serif: <a href="https://www.google.com/fonts/specimen/Lora" title="Lora" target="_blank">Lora</a>, serif
+			</small>
+		</div>
+
+		<div class="sg-header">
+			<h4>Responsive typography</h4>
+			<small>
+				Base font-size: 16px<br />
+				Desktop: 18px (from 60em/960px)<br />
+				Large desktop: 20px (from 75em/1200px)
+			</small>
+		</div>
+
+		<hr />
+
+		<small class="sg-info-above">&lt;h1&gt; - 48px/54px/60px</small>
+		<h1>Heading level one spread out</h1>
+
+		<small class="sg-info-above">&lt;h2&gt; - 30px/34px/38px</small>
+		<h2>Heading level two spread out lorum ipsum title dolor</h2>
+
+		<small class="sg-info-above">&lt;h3&gt; - 24px/27px/30px</small>
+		<h3>Heading level three spread out lorum ipsum title dolor magni natus error sit</h3>
+
+		<hr />
+
+		<small class="sg-info-above">&lt;h4 class="font-family-serif"&gt; - 18px/20px/22px</small>
+		<h4 class="font-family-serif">Long lorum ipsum title dolor magni est natus error sit accusantium magni dolores eos qui ratione voluptatem.</h4>
+
+		<small class="sg-info-above">&lt;h4&gt; - 16px/18px/20px</small>
+		<h4>Long lorum ipsum title dolor magni est natus error sit accusantium magni dolores eos qui ratione voluptatem.</h4>
+
+
+		<small class="sg-info-above">&lt;p&gt; - 16px/18px/20px</small>
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
+
+		<hr />
+
+		<small class="sg-info-above">&lt;h5&gt; - 14px/16px/18px</small>
+		<h5>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem external hyperlink.</h5>
+
+		<small class="sg-info-above">&lt;p class="font-size-medium"&gt; - 14px/16px/18px</small>
+		<p class="font-size-medium">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae abillo.</p>
+
+		<hr />
+
+		<small class="sg-info-above">&lt;h6&gt; - 12px/14px/15px</small>
+		<h6>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa inventore.</h6>
+
+		<small class="sg-info-above">&lt;small&gt; - 12px/14px/15px</small>
+		<small>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque external hyperlink, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</small>
+
+		<hr />
+
+		<small class="sg-info-above">
+			&lt;blockquote&gt; - 16px/18px/20px<br />
+			&lt;cite&gt; - 12px/14px/15px
+		</small>
+
+		<blockquote>
+			Sed ut perspiciatis unde omnis iste natus error sit volup tatem accusantium doloremque external hyperlink
+			<cite>Author name</cite>
+		</blockquote>
+
+		<hr />
+
+		<small class="sg-info-above">Hyperlinks: &lt;a href=""&gt;, &lt;a href="" class="external-link"&gt;</small><br />
+		<a href="#" title="">This is a hyperlink</a><br />
+		<a href="#" title="" class="external-link">This is an external hyperlink</a><br />
+
+		<small class="sg-info-above">Strong: &lt;strong&gt;</small><br />
+		<strong>This text is strong</strong><br />
+
+		<small class="sg-info-above">Emphasized: &lt;em&gt;</small><br />
+		<em>This text is emphasized</em><br />
+
+		<small class="sg-info-above">Quotes: &lt;q&gt;</small><br />
+		<q>This text is quoted</q><br />
+
+		<small class="sg-info-above">Highlighted: &lt;mark&gt;</small><br />
+		<mark>This text is highlighted</mark><br />
+
+		<small class="sg-info-above">Obsolete/deleted/updated: &lt;del&gt;</small><br />
+		<del>This text is obsolete/deleted/updated</del>
+
+	</section>
+
+
+	<!-- LISTS ///////////////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Lists</h1>
+
+		<small class="sg-info-above">Default lists: &lt;ul&gt;, &lt;ol&gt;</small><br />
+		<ul>
+			<li>Sed ut perspiciatis unde omnis est</li>
+			<li>Sed ut perspiciatis unde omnis est</li>
+			<li>Sed ut perspiciatis unde omnis est</li>
+		</ul>
+
+		<ol start="10">
+			<li>Sed ut perspiciatis unde omnis est</li>
+			<li>Sed ut perspiciatis unde omnis est</li>
+			<li>Sed ut perspiciatis unde omnis est</li>
+		</ol>
+
+		<br />
+
+		<small class="sg-info-above">Inline list: &lt;ul class="inline-list"&gt;</small>
+		<ul class="inline-list">
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ul>
+
+		<small class="sg-info-above">Separated: &lt;ul class="inline-list with-separator"&gt;</small><br />
+		<ul class="sg-inline-list inline-list with-separator">
+			<li>List item</li>
+			<li>List item</li>
+			<li>List item</li>
+		</ul>
+
+	</section>
+
+
+	<!-- ICONS /////////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Icons</h1>
+
+		<div class="sg-header">
+			<h4>Resources</h4>
+			<small>
+				Primary icon font: <a href="http://ionicons.com/" title="Ionicons" target="_blank">Ionicons</a><br />
+				Secondary icon font: <a href="http://ikons.piotrkwiatkowski.co.uk/" title="IKONS" target="_blank">IKONS</a>
+			</small>
+		</div>
+
+		<ul class="inline-list sg-icons">
+			<li class="icon-alert"><small>.icon-alert</small></li>
+			<li class="icon-gear"><small>.icon-gear</small></li>
+			<li class="icon-profile"><small>.icon-profile</small></li>
+			<li class="icon-share"><small>.icon-share</small></li>
+			<li class="icon-arrow-down"><small>.icon-arrow-down</small></li>
+			<li class="icon-arrow-left"><small>.icon-arrow-left</small></li>
+			<li class="icon-arrow-right"><small>.icon-arrow-right</small></li>
+			<li class="icon-arrow-up"><small>.icon-arrow-right</small></li>
+			<li class="icon-checkmark"><small>.icon-check</small></li>
+			<li class="icon-close"><small>.icon-close</small></li>
+			<li class="icon-search"><small>.icon-search</small></li>
+			<li class="icon-refresh"><small>.icon-refresh</small></li>
+		</ul>
+
+	</section>
+
+
+	<!-- ANIMATIONS ////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Animations</h1>
+
+		<!--div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Primary icon font: <a href="http://ionicons.com/" title="Ionicons" target="_blank">Ionicons</a><br />
+				Secondary icon font: <a href="http://ikons.piotrkwiatkowski.co.uk/" title="IKONS" target="_blank">IKONS</a>
+			</small>
+		</div-->
+
+		<ul class="inline-list sg-animation">
+			<li><span class="fade-in"></span><small>.fade-in</small></li>
+			<li><span class="fade-out"></span><small>.fade-out</small></li>
+			<li><span class="scale-up"></span><small>.scale-up</small></li>
+			<li><span class="scale-down"></span><small>.scale-down</small></li>
+		</ul>
+
+	</section>
+
+
+	<!-- IMAGES ////////////////////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Images</h1>
+
+		<div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Imagery should be used to enhance user experience and
+				express personal relevance and/or information. Try to
+				avoid the use of stockphotos at all times. Images are
+				set to be fluid by default, unless width and/or height
+				are specified.
+			</small>
+		</div>
+
+		<img src="img/image.jpg" alt="Always provide an image title" />
+		<img src="img/image.jpg" width="49%" alt="Always provide an image title" />
+		<img src="img/image.jpg" height="94" alt="Always provide an image title" />
+
+		<div class="sg-header">
+			<h4>Contextual images</h4>
+			<small>
+				When used in the context of a page/article, images should
+				be wrapped in a &lt;figure&gt;, captions should always be
+				provided underneath.
+			</small>
+		</div>
+
+		<figure>
+			<img src="img/image.jpg" alt="Always provide an image title" />
+			<cite>Image captions extend &lt;cite&gt;</cite>
+		</figure>
+
+		<div class="sg-header">
+			<h4>Overlays</h4>
+			<small>
+				For use in headers, heroes and/or mastheads. Image
+				overlays should have an opacity between 20-60% depending
+				on context. Use font-color/border-color values for this.
+			</small>
+		</div>
+
+		<div class="has-overlay" style="background-image: url(img/image.jpg);">
+			<h2>Image overlay</h2>
+			<h4>Tagline example</h4>
+		</div>
+
+		<div class="sg-header"><br />
+			<h4>Decorated, masked and blurred</h4>
+			<small>
+				Examples of decorated, masked and blurred images.
+				See base/images.scss for more information. Note: the
+				use of masks and CSS-filters is limited (webkit only)
+				and has a negative impact on rendering performance.
+			</small>
+		</div>
+
+		<figure>
+			<span class="is-masked" style="background-image: url(img/image.jpg);">&diams;</span>
+			<span class="is-masked" style="background-image: url(img/image.jpg);">&#9733;</span>
+			<span class="is-masked" style="background-image: url(img/image.jpg);">&#9650;</span>
+			<span class="is-masked" style="background-image: url(img/image.jpg);">&#10006;</span>
+			<h1 class="is-masked-text" style="background-image: url(img/image.jpg);">Masked</h1>
+		</figure>
+
+		<small class="sg-info-above">
+			Recommended blur values, <a href="http://www.doubleencore.com/2013/09/the-essential-ios-7-design-guide/" title="IOS blur effect" target="_blank">mimicking IOS's blur</a>:<br />10pt radius + 10pt increase in saturation
+		</small>
+
+		<div class="is-blurred" style="background-image: url(img/image.jpg);"></div>
+
+	</section>
+
+
+	<!-- BUTTONS ///////////////////////////////////////////////////// -->
+
+
+	<section id="buttons">
+
+		<h1 class="sg-title">Buttons</h1>
+
+		<div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Choosing a button type depends on the importance of the interaction.
+				Primary buttons should be used for key-interactions and navigation,
+				secondary buttons for in-context interaction (eg. show/hide, load more)
+				and flat buttons for smaller, grouped interactions and/or in modal windows.
+			</small>
+		</div>
+
+		<div class="sg-header">
+			<h4>Implementation</h4>
+			<small>
+				Use &lt;a&gt; for navigation, &lt;button&gt; for everything else.
+				Submit/reset buttons are the only exceptions, using &lt;input[type="submit"]&gt;
+				to trigger the default browser behaviour associated with form input.
+			</small>
+		</div>
+
+		<div class="sg-header">
+			<h4>Button sizes</h4>
+			<small>
+				Recommended button height should be 5 &times; 1 base-line grid-unit<br />
+				Base: 40px (5 &times; 8px)<br />
+				Desktop: 45px (5 &times; 9px)<br />
+				Large desktop: 50px (5 &times; 10px)
+			</small>
+		</div>
+
+		<a href="#buttons" class="button" title="Primary button">Primary button</a>
+		<button class="button" disabled title="Disabled">Disabled</button><br />
+		<button class="button-square" title="Square button">Square button</button>
+		<button class="button-circle" title="Circular button">Circular button</button>
+		<button class="button-pill" title="Pill button">Pill button</button>
+
+		<br /><br />
+
+		<small class="sg-info-above">Secondary: &lt;button class="button-secondary-xx"&gt;</small><br />
+		<button class="button-secondary" title="Secondary button">Secondary button</button>
+		<button class="button-secondary" disabled title="Disabled">Disabled</button><br />
+		<button class="button-secondary-square" title="Square button">Square button</button>
+		<button class="button-secondary-circle" title="Circular button">Circular button</button>
+		<button class="button-secondary-pill" title="Pill button">Pill button</button>
+
+		<br /><br />
+
+		<small class="sg-info-above">Flat: &lt;button class="button-flat"&gt;</small><br />
+		<button class="button-flat" title="Flat button">Flat button</button>
+		<button class="button-flat" disabled title="Disabled">Disabled</button>
+
+
+		<br /><br />
+
+		<div class="sg-header">
+			<h4>In-context actions</h4>
+			<small>
+				Buttons for small in-line interaction (eg. close, add, remove, ...). In most cases these will be based on icons provided in the icon-font. If possible however, use <a href="http://dev.w3.org/html5/html-author/charref" title="HTML-enitities" target="_blank">HTML-enitities</a> as this saves some icon-characters (bytes).
+			</small>
+		</div>
+
+		<button class="button-close" title="Close button"><span class="is-hidden">Close</span></button>
+		<button class="button-plus" title="Add/expand button"><span class="is-hidden">Add/expand</span></button>
+		<button class="button-min" title="Subtract/minify button"><span class="is-hidden">Subtract/minify</span></button>
+
+	</section>
+
+
+	<!-- INTERACTION FEEDBACK //////////////////////////////////////// -->
+
+
+	<section>
+
+		<h1 class="sg-title">Feedback</h1>
+
+		<div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Always provide feedback on user interaction. This can be immediate
+				(eg. inline validation) or after (eg. submit a form).
+				Feedback messages are informative and provide an easy escape or
+				alternative/following action. The tone of voice should be human
+				and add personality to the experience/brand.
+			</small>
+		</div>
+
+		<div class="sg-header">
+			<h4>Implementation</h4>
+			<small>
+				Button interactions to remove the alert are provided by default.
+				To enable the actual functionality you will need to include /js/remove-dom-elements.js
+				in the page. Degrades gracefully when javascript is not enabled
+				in the client by hiding the buttons with CSS.
+			</small>
+		</div>
+
+		<small class="sg-info-above">Default: &lt;div class="alert"&gt;</small>
+		<div class="alert">
+
+			<h4>Hi there!</h4>
+			<p>This is a <a href="#" title="">feedback message</a>.</p>
+			<button class="button-close"
+			        ontouchstart="removeNode(this.parentNode)"
+			        onclick="removeNode(this.parentNode)"
+			        title="Close">
+			        <span class="is-hidden">Close</span>
+			</button>
+
+		</div>
+
+		<small class="sg-info-above">Error: &lt;div class="alert error"&gt;</small>
+		<div class="alert error">
+
+			<h4>Oops!</h4>
+			<p>Something went wrong, please <a href="#" title="">try again</a>.</p>
+			<button class="button-close"
+			        ontouchstart="removeNode(this.parentNode)"
+			        onclick="removeNode(this.parentNode)"
+			        title="Close">
+			        <span class="is-hidden">Close</span>
+			</button>
+
+		</div>
+
+		<small class="sg-info-above">Warning: &lt;div class="alert warning"&gt;</small>
+		<div class="alert warning">
+
+			<h4>Warning!</h4>
+			<p>Perhaps you meant <a href="#" title="">something else</a>.</p>
+			<button class="button-close"
+			        ontouchstart="removeNode(this.parentNode)"
+			        onclick="removeNode(this.parentNode)"
+			        title="Close">
+			        <span class="is-hidden">Close</span>
+			</button>
+
+		</div>
+
+		<small class="sg-info-above">Success alert: &lt;div class="alert success"&gt;</small>
+		<div class="alert success">
+
+			<h4>Great!</h4>
+			<p>Now how about <a href="#" title="">adding some more</a>.</p>
+			<button class="button-close"
+			        ontouchstart="removeNode(this.parentNode)"
+			        onclick="removeNode(this.parentNode)"
+			        title="Close">
+			        <span class="is-hidden">Close</span>
+			</button>
+
+		</div>
+
+		<small class="sg-info-above">Information alert: &lt;div class="alert information"&gt;</small>
+		<div class="alert information">
+
+			<h4>Information!</h4>
+			<p><a href="#" title="">Some features</a> might not work.</p>
+			<button class="button-close"
+			        ontouchstart="removeNode(this.parentNode)"
+			        onclick="removeNode(this.parentNode)"
+			        title="Close">
+			        <span class="is-hidden">Close</span>
+			</button>
+
+		</div>
+
+		<div class="sg-header">
+			<h4>Tooltips</h4>
+			<small>
+				Use tooltips to display inline information or validation feedback.
+				Just like default alerts, different styling can be applied (error,
+				warning, success and information). Although tooltips will work with
+				any typographic style, the use of &lt;small&gt; is adviced.
+				<br /><br />
+				General markup: &lt;small class="tooltip-xx state"&gt;
+			</small>
+		</div>
+
+		<small class="tooltip-up">Tooltip with <a href="#" title="">hyperlink</a></small>
+		<small class="tooltip-up error">Tooltip</small>
+		<small class="tooltip-up warning">Tooltip</small>
+		<small class="tooltip-up success">Tooltip</small>
+		<small class="tooltip-up information">Tooltip</small>
+
+		<br />
+
+		<small class="tooltip-right">Tooltip with <a href="#" title="">hyperlink</a></small>
+		<small class="tooltip-right error">Tooltip</small>
+		<small class="tooltip-right warning">Tooltip</small>
+		<small class="tooltip-right success">Tooltip</small>
+		<small class="tooltip-right information">Tooltip</small>
+
+		<br />
+
+		<small class="tooltip-down">Tooltip with <a href="#" title="">hyperlink</a></small>
+		<small class="tooltip-down error">Tooltip</small>
+		<small class="tooltip-down warning">Tooltip</small>
+		<small class="tooltip-down success">Tooltip</small>
+		<small class="tooltip-down information">Tooltip</small>
+
+		<br />
+
+		<small class="tooltip-left">Tooltip with <a href="#" title="">hyperlink</a></small>
+		<small class="tooltip-left error">Tooltip</small>
+		<small class="tooltip-left warning">Tooltip</small>
+		<small class="tooltip-left success">Tooltip</small>
+		<small class="tooltip-left information">Tooltip</small>
+
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- FORMS ///////////////////////////////////////////////////////
+	Most current and supported types are listed beneath
+	A full list of input-types can be found here:
+	- http://www.w3schools.com/tags/att_input_type.asp
+	-->
+
+
+	<!--section>
+
+		<h1 class="sg-title">Forms</h1>
+
+		<div class="sg-header">
+			<h4>General principle</h4>
+			<small>
+				Each input field should have a label and inform users about the kind of
+				input they need to provide. This info-text switches functionality during
+				the user flow: information becomes inline validation/immediate feedback.
+				The tone of voice should be human and add personality to the experience/brand.
+			</small>
+		</div>
+
+		<div class="sg-header">
+			<h4>Implementation details</h4>
+			<small>
+				Every form should have an action- and method-attribute. To encourage default
+				browser behaviour, the submit button should be added as input[type=submit].
+				Every input should have a label with corresponding for-, id- and name-attributes.
+				Labels are always placed before inputs, nesting is not allowed (except for
+				checkboxes and radio's).
+			</small>
+		</div>
+
+		<form action="#" method="GET">
+
+
+
+			<div class="input">
+
+				<label for="input-text">Label</label>
+				<input type="text" name="input-text" id="input-text" placeholder="Placeholder" />
+				<small>Tell the user what kind of input is expected.</small>
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<br /><br />
+			<br /><br />
+			<br /><br />
+			<br /><br />
+
+
+
+
+
+
+
+			<label for="input-text">Text</label>
+			<input type="text" name="input-text" id="input-text" placeholder="Placeholder" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-email">Email</label>
+			<input type="email" name="input-email" id="input-email" placeholder="your-email@domain.com" />
+			<small>Info-field switch to immediate inline validation and user feedback</small>
+
+			<br />
+
+			<label for="input-password">Password</label>
+			<input type="password" name="input-password" id="input-password" placeholder="Your password" />
+			<small>Passwords should be ...</small>
+
+			<br />
+
+			<label for="input-number">Number</label>
+			<input type="number" name="input-number" id="input-number" placeholder="1234" min="-10" step="0.2" max="20" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-date">Date</label>
+			<input type="date" name="input-date" id="input-date" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-telephone">Telephone</label>
+			<input type="tel" name="input-telephone" id="input-telephone" placeholder="+32 9 233 31 03" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-url">URL</label>
+			<input type="url" name="input-url" id="input-url" placeholder="http://www.domain.com" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-search">Search</label>
+			<input type="search" name="input-search" id="input-search" placeholder="Search..." />
+
+			<br />
+
+			<label for="input-range">Range</label>
+			<input type="range" name="input-range" id="input-range" min="-10" max="10" step="1" value="4" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-color">Color:</label>
+			<input type="color" name="input-color" id="input-color" value="#0099DD" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-file">File:</label>
+			<input type="file" accept="image/jpg" name="input-file" id="input-file" />
+			<small>Tell the user what kind of input is expected.</small>
+
+			<br />
+
+			<label for="input-select">Select:</label>
+			<select name="input-selected" id="input-select">
+				<option value="" disabled selected>- Choose -</option>
+				<option value="1">Option 1</option>
+				<option value="2">Option 2</option>
+				<option value="3">Option 3</option>
+				<option value="4" disabled="">Option 4 disabled</option>
+				<option value="5">Option 5</option>
+			</select>
+			<small>Tell the user what kind of input is expected.</small>
+
+			<fieldset>
+				<legend>Checkboxes</legend>
+				<label>
+					<input type="checkbox" name="input-checkbox" value="1" /> Option 1
+				</label>
+				<label>
+					<input type="checkbox" name="input-checkbox" value="2" /> Option 3
+				</label>
+				<label>
+					<input type="checkbox" name="input-checkbox" value="3" /> Option 3
+				</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>Radio</legend>
+				<label>
+					<input type="radio" name="input-radio" value="1" /> Option 1
+				</label>
+				<label>
+					<input type="radio" name="input-radio" value="2" /> Option 3
+				</label>
+				<label>
+					<input type="radio" name="input-radio" value="3" /> Option 3
+				</label>
+			</fieldset>
+
+			<label for="input-textarea">Textarea</label><br />
+			<textarea name="input-textarea" id="input-textarea" cols="30" rows="5" placeholder="Your text here..."></textarea>
+
+			<div class="sg-header">
+				<h4>Submit &amp; reset</h4>
+				<small>Always provide a value attribute for submit and cancel. Use button classes for styling.</small>
+			</div>
+
+			<input type="submit" value="Submit" />
+			<input type="reset" value="Reset" />
+
+		</form>
+
+		<div class="sg-header">
+			<h4>Error handling</h4>
+			<small>
+				Here will come the error-handling soon...
+			</small>
+		</div>
+
+		<form action="#" method="post">
+
+		</form>
+
+
+	</section     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--
+	<nav>
+
+		// Holds navigation
+
+	</nav>
+	<footer>
+
+		// Footer stuff
+
+	</footer>
+	-->
+
+
+
+
+
+	<!-- SCRIPTS /////////////////////////////////////////////////////
+	Using 'gulp-usemin' to concatenate Javascript files in production
+	-->
+
+	<!-- build:js js/app.js -->
+	<script src="js/main.js"></script>
+	<script src="js/remove-dom-elements.js"></script>
+	<!-- endbuild -->
+
+
+</body>
+</html>

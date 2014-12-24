@@ -1,0 +1,30 @@
+// -------------------------------------------------------------------
+// :: ICON FONT
+// -------------------------------------------------------------------
+// Created with the 'gulp iconfont'-task, the source-template
+// of this file can be found in fonts/icon-sources/_template.scss
+
+@include FLOW-get-font("<%= fontName %>", "<%= fontPath %>/<%= fontName %>");
+
+%___FLOW-icon {
+	font-family: "<%= fontName %>";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+
+	// Improve font-rendering
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// Note: Use single quotes ('') for content in pseudo-selectors
+// as double quotes ("") are not supported in <IE9
+<% _.each(glyphs, function(glyph) { %>
+.<%= className %>-<%= glyph.name %>:before { content: '\<%= glyph.codepoint.toString(16) %>'; @extend %___FLOW-icon; }<% }); %>

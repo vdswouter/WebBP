@@ -1,0 +1,91 @@
+// -------------------------------------------------------------------
+// :: GLOBAL SETTINGS
+// -------------------------------------------------------------------
+
+@import "compass";
+
+// Debug breakpoints, vertical rhythm and invalid markup
+//
+// - see utils/_media-queries.scss
+// - see utils/_debug.scss
+
+$debug-mode: false;
+$debug-rhythm: false;
+
+
+// -------------------------------------------------------------------
+// :: MEDIA QUERIES
+// -------------------------------------------------------------------
+// Major breakpoints should be set in base/_typography.scss
+// Minor breakpoint should be added where needed (inline)
+
+$mobile:     30em; // 480px
+$tablet:     45em; // 720px
+$desktop:    60em; // 960px
+$desktop-xl: 75em; // 1200px
+
+
+// -------------------------------------------------------------------
+// :: COLORS
+// -------------------------------------------------------------------
+// See styleguide.html for more info on how colors are being used
+
+$black: #16272A;
+$white: #FFFFFF;
+
+$primary-color: #13b4ff;
+
+$ui-red:    #E51C23;
+$ui-orange: #FB8C00;
+$ui-yellow: #FDD835;
+$ui-green:  #20BA20;
+$ui-blue:   #03A9F4;
+
+$font-color:        rgba($black, 0.92); // Base
+$font-color-medium: rgba($black, 0.52); // Secondary (eg. image caption)
+$font-color-light:  rgba($black, 0.24); // Placeholders in forms
+$border-color:      rgba($black, 0.16); // Borders and rules
+
+$font-color-white:        $white;
+$font-color-white-medium: rgba($white, 0.64);
+$font-color-white-light:  rgba($white, 0.42);
+$border-color-white:      rgba($white, 0.24);
+
+
+// -------------------------------------------------------------------
+// :: TYPOGRAPHY
+// -------------------------------------------------------------------
+// Base-font-sizes should be set in base/_typography.scss
+//
+// - http://www.awayback.com/revised-font-stack
+// - http://practicaltypography.com/system-fonts.html
+
+$font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif: "Lora", serif;
+
+$font-size-largest:  48px; // h1
+$font-size-larger:   30px; // h2
+$font-size-large:    24px; // h3
+$font-size:          16px; // default
+$font-size-medium:   14px; // h5
+$font-size-small:    12px; // h6, small
+
+$line-height: 1.5;
+
+// Default border-radius value for input elements,
+// alerts, buttons, images (in <figure>), ...
+
+$border-radius: 0.15em;
+
+$base-unit: 15px;
+
+
+// -------------------------------------------------------------------
+// :: FLOW IMPORTS
+// -------------------------------------------------------------------
+
+@import "utils/_css-shapes";
+@import "utils/_font-face";
+@import "utils/_functions";
+@import "utils/_media-queries";
+

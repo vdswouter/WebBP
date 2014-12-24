@@ -1,0 +1,148 @@
+// -------------------------------------------------------------------
+// :: TOOLTIPS
+// -------------------------------------------------------------------
+
+@mixin FLOW-tooltip($_direction: "up", $_color: $font-color-medium) {
+
+	color: $white;
+	background: rgba($_color, 0.84);
+
+	&:before {
+		@include FLOW-css-triangle($_direction, 0.5em, rgba($_color, 0.84));
+
+		@if $_direction == "up" {
+			transform: translate(-50%, -100%);
+			left: 50%;
+			top: 0;
+		}
+
+		@if $_direction == "right" {
+			transform: translate(100%, -50%);
+			right: 0;
+			top: 50%;
+		}
+
+		@if $_direction == "down" {
+			transform: translate(-50%, 100%);
+			left: 50%;
+			bottom: 0;
+		}
+
+		@if $_direction == "left" {
+			transform: translate(-100%, -50%);
+			left: 0;
+			top: 50%;
+		}
+	}
+
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// IMPORTANT: classes described below are just examples
+// Cleanup & optimize when moving to production!
+
+[class*='tooltip'] {
+	padding: 0.6em 0.95em;
+	border-radius: $border-radius;
+	position: relative;
+}
+
+[class*='tooltip']:before {
+	position: absolute;
+}
+
+[class*='tooltip'] a {
+	color: inherit;
+}
+
+// Tooltip up
+
+.tooltip-up:not(.error):not(.warning):not(.success):not(.information) {
+	@include FLOW-tooltip("up");
+}
+
+.tooltip-up.error {
+	@include FLOW-tooltip("up", $ui-red);
+}
+
+.tooltip-up.warning {
+	@include FLOW-tooltip("up", $ui-orange);
+}
+
+.tooltip-up.success {
+	@include FLOW-tooltip("up", $ui-green);
+}
+
+.tooltip-up.information {
+	@include FLOW-tooltip("up", $ui-blue);
+}
+
+// Tooltip right
+
+.tooltip-right:not(.error):not(.warning):not(.success):not(.information) {
+	@include FLOW-tooltip("right");
+}
+
+.tooltip-right.error {
+	@include FLOW-tooltip("right", $ui-red);
+}
+
+.tooltip-right.warning {
+	@include FLOW-tooltip("right", $ui-orange);
+}
+
+.tooltip-right.success {
+	@include FLOW-tooltip("right", $ui-green);
+}
+
+.tooltip-right.information {
+	@include FLOW-tooltip("right", $ui-blue);
+}
+
+// Tooltip down
+
+.tooltip-down:not(.error):not(.warning):not(.success):not(.information) {
+	@include FLOW-tooltip("down");
+}
+
+.tooltip-down.error {
+	@include FLOW-tooltip("down", $ui-red);
+}
+
+.tooltip-down.warning {
+	@include FLOW-tooltip("down", $ui-orange);
+}
+
+.tooltip-down.success {
+	@include FLOW-tooltip("down", $ui-green);
+}
+
+.tooltip-down.information {
+	@include FLOW-tooltip("down", $ui-blue);
+}
+
+// Tooltip left
+
+.tooltip-left:not(.error):not(.warning):not(.success):not(.information) {
+	@include FLOW-tooltip("left");
+}
+
+.tooltip-left.error {
+	@include FLOW-tooltip("left", $ui-red);
+}
+
+.tooltip-left.warning {
+	@include FLOW-tooltip("left", $ui-orange);
+}
+
+.tooltip-left.success {
+	@include FLOW-tooltip("left", $ui-green);
+}
+
+.tooltip-left.information {
+	@include FLOW-tooltip("left", $ui-blue);
+}
+

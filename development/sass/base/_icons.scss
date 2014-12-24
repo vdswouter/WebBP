@@ -1,0 +1,44 @@
+// -------------------------------------------------------------------
+// :: ICON FONT
+// -------------------------------------------------------------------
+// Created with the 'gulp iconfont'-task, the source-template
+// of this file can be found in fonts/icon-sources/_template.scss
+
+@include FLOW-get-font("icons", "../fonts/icons");
+
+%___FLOW-icon {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	speak: none;
+
+	// Improve font-rendering
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// Note: Use single quotes ('') for content in pseudo-selectors
+// as double quotes ("") are not supported in <IE9
+
+.icon-alert:before { content: '\e001'; @extend %___FLOW-icon; }
+.icon-arrow-down:before { content: '\e002'; @extend %___FLOW-icon; }
+.icon-arrow-left:before { content: '\e003'; @extend %___FLOW-icon; }
+.icon-arrow-right:before { content: '\e004'; @extend %___FLOW-icon; }
+.icon-arrow-up:before { content: '\e005'; @extend %___FLOW-icon; }
+.icon-checkmark:before { content: '\e006'; @extend %___FLOW-icon; }
+.icon-close:before { content: '\e007'; @extend %___FLOW-icon; }
+.icon-eye:before { content: '\e008'; @extend %___FLOW-icon; }
+.icon-gear:before { content: '\e009'; @extend %___FLOW-icon; }
+.icon-location:before { content: '\e00a'; @extend %___FLOW-icon; }
+.icon-power:before { content: '\e00b'; @extend %___FLOW-icon; }
+.icon-profile:before { content: '\e00c'; @extend %___FLOW-icon; }
+.icon-refresh:before { content: '\e00d'; @extend %___FLOW-icon; }
+.icon-search:before { content: '\e00e'; @extend %___FLOW-icon; }
+.icon-share:before { content: '\e00f'; @extend %___FLOW-icon; }

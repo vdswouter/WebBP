@@ -1,0 +1,332 @@
+// -------------------------------------------------------------------
+// :: FORMS
+// -------------------------------------------------------------------
+// Every form should have an action- and method-attribute
+// The submit button should be added as input[type=submit]
+//
+// Every input should have a label with corresponding for-, id- and
+// name-attributes. Labels are always placed before inputs, nesting
+// is not allowed (except for checkboxes and radio's)
+
+@include FLOW-normalize-forms;
+
+
+// -------------------------------------------------------------------
+// :: BASE
+// -------------------------------------------------------------------
+// Single-line inputs should have the same height as buttons
+// Button height = 1.5 * 28 (base-unit) = 42
+
+form {
+	margin-bottom: 3em;
+  margin-top: 1em;
+}
+
+select,
+textarea,
+input:not([class*='button']) {
+	width: 100%;
+	padding: 0.45em 0.6em;
+	border-radius: 0.15em;
+  	margin: 5px 0;
+	border: 1px solid $border-color;
+	background: rgba($font-color, 0.03);
+
+	transition: all 150ms ease-in-out;
+
+	@include FLOW-input-placeholder {
+		color: $font-color-medium;
+	}
+
+	// Address margins set differently
+	// in Firefox 4+, Safari and Chrome
+	// margin: 0;
+
+	// Style input types on IOS
+	// with webkit-appearance
+
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+}
+
+textarea:focus,
+input:not([class*='button']):focus {
+	background: $white;
+	border-color: $font-color-medium;
+}
+
+input[type=email] {
+	text-transform: lowercase;
+}
+
+textarea {
+	//resize: none;
+	resize: vertical;
+	//resize: horizontal;
+	//resize: both;
+}
+
+.select-container {
+	position: relative;
+
+	&:after {
+		@include FLOW-css-triangle("down", 4px, $black);
+		position: absolute;
+		top: 22px;
+		right: 16px;
+	}
+}
+
+select {
+	background: linear-gradient(rgba($font-color, 0.02), rgba($font-color, 0.05));
+}
+
+select:after {
+	content: '';
+	@include FLOW-css-triangle("down", 4px, $black);
+}
+
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+
+.input {
+	position: relative;
+	margin-bottom: $base-unit;
+}
+
+.input label {
+	font-weight: 700;
+	font-size: $font-size-small;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: 6px;
+}
+
+.input small {
+	font-style: italic;
+	color: $font-color-medium;
+	margin-top: 6px;
+	display: block;
+}
+
+.input a {
+	color: inherit;
+}
+
+// Form footer holds the
+// submit/cancel buttons
+
+.form-footer {
+	text-align: center;
+	margin-top: 2 * $base-unit;
+}
+
+// Space between buttons floated right
+.form-footer .right {
+	margin-left: $base-unit / 2;
+}
+
+
+// -------------------------------------------------------------------
+// :: SEARCH INPUT
+// -------------------------------------------------------------------
+
+.input-search {
+	position: relative;
+	@extend .icon-search;
+
+	&:before {
+		position: absolute;
+		left: 18px;
+		top: 10px;
+		color: $font-color-medium;
+	}
+}
+
+.input-search input {
+	padding-left: 40px;
+}
+
+// -------------------------------------------------------------------
+// :: RADIO BUTTONS AND CHECKBOXES
+// -------------------------------------------------------------------
+
+// Hide native elements
+// Make selector extra specific to avoid override from base
+.checkbox input[type=checkbox],
+.radio input[type=radio] {
+	display: none;
+}
+
+// Style labels
+.checkbox label,
+.radio label {
+	margin-bottom: 1em;
+}
+
+.checkbox input + label,
+.radio input + label {
+	text-transform: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	display: inline;
+	cursor: pointer;
+}
+
+
+// Shared visual styles for radio buttons and checkmarks
+.checkbox label:before,
+.radio label:before {
+	color: transparent;
+	display: inline-block;
+	width: $base-unit;
+	height: $base-unit;
+	border: 1px solid #cac9c7;
+	background: linear-gradient(rgba($font-color, 0.02), rgba($font-color, 0.05));
+	margin-right: 12px;
+	margin-bottom: 14px;
+}
+
+.checkbox label:active:before,
+.radio label:active:before  {
+	background: linear-gradient(#dbdbd9, #e0e0df);
+}
+
+// Make checkmark visible when checked
+.checkbox input:checked + label:before,
+.radio input:checked + label:before {
+	color: $font-color;
+}
+
+// Checkbox specific styles
+.checkbox input + label {
+	@extend .icon-checkmark;
+}
+
+.checkbox input + label:before {
+	border-radius: 2px;
+	padding-left: 5px;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+// Radio Button specific styles
+.radio input + label {
+	@extend .icon-radio !optional;
+}
+
+.radio input + label:before {
+	border-radius: 50%;
+	padding-left: 8px;
+	font-size: 12px;
+	line-height: 25px;
+}
+
+// -------------------------------------------------------------------
+// :: FILE INPUT
+// -------------------------------------------------------------------
+
+.input.file .filename {
+	display: inline;
+	width: auto;
+	cursor: inherit;
+}
+
+.input-file-container {
+	background: $primary-color;
+	position: relative;
+}
+
+input[type=file] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+
+// -------------------------------------------------------------------
+// :: INPUTS WITH TOOLTIPS
+// -------------------------------------------------------------------
+// Wrap fields in an input group to position tooltips
+
+.with-side-validation {
+	margin-bottom: 0;
+}
+
+.with-side-validation [class*='tooltip-'] {
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	white-space: nowrap;
+	text-align: left;
+	font-size: $font-size-small;
+	padding: 0.92em 0.85em;
+	margin: -5px 1em 0 1em;
+	transform: translateY(-50%);
+}
+
+
+// -------------------------------------------------------------------
+// :: FEEDBACK STATES
+// -------------------------------------------------------------------
+// There are 3 possible feedback states:
+// error, success and warning
+
+.input.error small:before,
+.input.success small:before,
+.input.warning small:before {
+	font-style: normal;
+	margin: 0 0.25em;
+}
+
+// Error
+
+.input.error input {
+	border-color: $ui-red;
+	background: $white;
+}
+
+.input.error small {
+	color: $ui-red;
+}
+
+.input.error small:before {
+	content: '\2716';
+}
+
+// Succes
+
+.input.success input {
+	border-color: $ui-green;
+	background: $white;
+}
+
+.input.success small {
+	color: $ui-green;
+}
+
+.input.success small:before {
+	content: '\2714';
+}
+
+// Warning
+
+.input.warning input {
+	border-color: $ui-orange;
+	background: $white;
+}
+
+.input.warning small {
+	color: $ui-orange;
+}
+
+.input.warning small:before {
+	content: '\25B2';
+}
+

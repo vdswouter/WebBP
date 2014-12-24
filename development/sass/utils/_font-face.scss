@@ -1,0 +1,24 @@
+// -------------------------------------------------------------------
+// :: FONT-FACE
+// -------------------------------------------------------------------
+// Note: promote the use of system-fonts where possible
+//
+// - http://css-tricks.com/forums/topic/do-we-really-need-ttf-svg-in-font-face-now
+// - http://www.fontsquirrel.com/tools/webfont-generator
+// - http://practicaltypography.com/system-fonts.html
+// - http://www.google.com/fonts
+
+@mixin FLOW-get-font($_name, $_url, $_weight: normal, $_style: normal) {
+
+	@font-face {
+		font-family: $_name;
+		src: url($_url +".eot");
+		src: url($_url +".eot?#iefix") format("embedded-opentype"),
+		     url($_url +".woff") format("woff"),
+		     url($_url +".ttf") format("truetype"),
+		     url($_url +".svg#icon") format("svg");
+		font-weight: $_weight;
+		font-style: $_style;
+	}
+
+}

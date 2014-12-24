@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>     <html lang="en" class="no-js ie8"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+	<!-- OPTIMIZE PAGE-LOAD //////////////////////////////////////////
+	- http://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md
+	- http://developers.google.com/speed/pagespeed/service/FlushResourcesEarly
+	- http://developers.google.com/speed/pagespeed/service/PreResolveDns
+	- http://daker.me/2013/05/5-html5-features-you-need-to-know.html
+
+	Resolve and caching DNS lookups initiates downloads faster
+	Browsers do this by default for assets present in the markup
+	Enable 'dns-prefetch' when dealing with cross-domain assets
+	(eg. API-calls, injected urls, 3rd party libs, ...)
+	<link rel="dns-prefetch" href="{{ DOMAIN-NAME }}" />
+	-->
+
+	<!--
+	Use 'prefetch' to preload assets once this page has finished
+	loading or 'prerender' to preload entire pages (with assets)
+	This results in faster downloads of assets and pages when
+	needed (eg. load ondemand, navigating to another page, ...)
+	<link rel="prefetch" href="{{ SOME-ASSET-OR-ANOTHER-PAGE }}" />
+	<link rel="prerender" href="{{ ANOTHER-PAGE }}" />
+	-->
+
+	<!--
+	Use 'subresource' to flush assets early, this lets the
+	browser know which assets to proiritize and load first
+	<link rel="subresource" href="{{ SOME-ASSET }}" />
+	-->
+
+
+	<!-- CSS /////////////////////////////////////////////////////////
+	Using 'gulp-usemin' to concatenate CSS files in production
+	Following a Mobile First approach, all media queries are
+	combined in a separate file which is loaded async (TODO)
+
+	Note: <link ... media="screen and (min-width: 40em)" />
+	only defines when CSS will be applied, it will not block
+	the file from being downloaded
+	-->
+
+	<!-- build:css css/m.css -->
+	<link rel="stylesheet" href="css/main.css" />
+	<!-- endbuild -->
+	<!-- build:css css/mq.css -->
+	<link rel="stylesheet" href="css/main.responsive.css" />
+	<!-- endbuild -->
+
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700" />
+
+	<!--
+	Old IE browsers are served additional CSS and Javascript
+	using conditional statements (no longer supported in >IE10)
+	-->
+
+	<!--[if (lt IE 9) & (!IEMobile)]>
+		<!-- build:css css/ie.css -->
+		<link rel="stylesheet" href="css/main-ie.css" />
+		<!-- endbuild -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<![endif]-->
+
+
+	<!-- SEO /////////////////////////////////////////////////////////
+	- http://support.google.com/webmasters/bin/answer.py?hl=nl&answer=79812&topic=2371375&ctx=topic
+	- http://www.iacquire.com/blog/18-meta-tags-every-webpage-should-have-in-2013
+	- http://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md
+	- http://moz.com/blog/meta-data-templates-123
+
+	Set meta-data and force search engines to display this information
+	in search results (this prevents caching of meta-data)
+	-->
+
+	<title>Model View Whatever</title>
+
+	<meta name="description" content="{{ DESCRIPTION - max. 155 characters }}" />
+	<meta name="robots" content="noodp, noydir" />
+
+	<!--
+	Signal search engines to 'use-this-URL-for-this-page', use this
+	when parameters (# or ?) are used to control the display state
+	<link rel="canonical" href="http://www.{{ URL }}" />
+	-->
+
+
+	<!-- META-TAGS FOR MOBILE ////////////////////////////////////////
+	- http://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+	- http://www.metatags.nl/mobiele_metatags_voor_de_smartphone
+	- http://github.com/h5bp/mobile-boilerplate/wiki/The-Markup
+
+	Let search engines know this page is optimized for mobile devices
+	and enable smooth font rendering on IE Mobile
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<meta http-equiv="cleartype" content="on" />
+	-->
+
+	<!--
+	Set the viewport for IOS to enable media queries and prevent phone
+	numbers from being displayed as hyperlinks (IOS default behavior)
+	Note: don't disable the ability to zoom, it's bad UX
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+	-->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no" />
+
+
+	<!-- G+ AND FACEBOOK /////////////////////////////////////////////
+	- https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content
+	- https://developers.facebook.com/docs/opengraph/getting-started
+	- https://developers.facebook.com/docs/opengraph/using-objects
+	- https://developers.facebook.com/docs/insights
+
+	Use the fb:admins–tag to get access to Facebook Insights analytics
+	<meta property="fb:admins" content="{{ FACEBOOK-USER-ID }}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{{ PAGE-TITLE }}" />
+	<meta property="og:description" content="{{ DESCRIPTION }}" />
+	<meta property="og:image" content="http://www.{{ URL }}/tile-large.jpg" />
+	<meta property="og:url" content="http://www.{{ URL }}" />
+	-->
+
+
+	<!-- TWITTER CARDS ///////////////////////////////////////////////
+	- https://dev.twitter.com/docs/cards/validation/validator
+	- https://dev.twitter.com/docs/cards/markup-reference
+
+	Note: Twitter cards need to be validated and approved after launch
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@{{ TWITTER-ACCOUNT }}" />
+	<meta name="twitter:title" content="{{ TITLE }}" />
+	<meta name="twitter:description" content="{{ DESCRIPTION }}" />
+	<meta name="twitter:image:src" content="http://www.{{ URL }}/tile-large.jpg" />
+	-->
+
+
+	<!-- WINDOWS TILES ///////////////////////////////////////////////
+	- http://msdn.microsoft.com/en-us/library/ie/dn455106(v=vs.85).aspx
+	- http://msdn.microsoft.com/en-us/library/ie/dn255024(v=vs.85).aspx
+	- http://stackoverflow.com/a/18304009
+
+	Create custom tiles (desktop shortcuts) for IE10 and disable
+	link highlighting upon tap. IE11 has more configuration options,
+	see documentation links in development/meta/_browserconfig.xml
+	<meta name="application-name" content="{{ SITE-NAME }}" />
+	<meta name="msapplication-tooltip" content="{{ DESCRIPTION }}" />
+	<meta name="msapplication-TileImage" content="apple-touch-icon-precomposed.png" />
+	<meta name="msapplication-TileColor" content="#000000" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	-->
+
+
+	<!-- MOBILE STANDALONE MODE //////////////////////////////////////
+	- https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md
+	- http://www.html-5.com/metatags/index.html#apple-mobile-web-app-capable
+	- http://blog.teamtreehouse.com/optimizing-mobile-web-apps-ios
+
+	Enable the page to run in standalone (chromeless) mode from the
+	homescreen on Android and IOS (untested - IOS7 is kinda buggy)
+	Note: feature needs testing
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-title" content="{{ TITLE }}" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	-->
+
+
+	<!-- SHOW APPSTORE BANNERS ///////////////////////////////////////
+	- https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html
+	- https://developer.chrome.com/webstore/inline_installation
+
+	Promote IOS and Chrome web-apps by showing a banner
+	<meta name="apple-itunes-app" content="app-id={{ APPLE-APP-ID }}, app-argument={{ APP-DESCRIPTION }}" />
+	<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/{{ CHROME-APP-ID }}" />
+	-->
+
+
+	<!-- FAVICONS AND HTACCESS ///////////////////////////////////////
+	- http://developer.apple.com/library/mac/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+	- http://en.wikipedia.org/wiki/Favicon
+	- http://favicon.htmlkit.com/favicon
+	- http://www.favicon.cc
+
+	Favicon, apple-touch-icons, social-sharing assets and
+	.htaccess are automatically copied from the meta folder
+	to the root directory when building a production version
+	Always include a favicon.ico with sizes: 16x16 and 32x32
+	-->
+
+</head>
+<body>
+
+	<!-- NOSCRIPT ////////////////////////////////////////////////////
+	SPA (Single Page Applications) commonly require javascript
+	If this is disabled, provide users with a feedback message
+	<noscript>
+
+		{{ SITE-NAME }} requires javascript, which is not enabled in your browser.
+		Here are instructions on <a href="http://www.enable-javascript.com/" target="_blank">how to enable javaScript</a> in your browser.
+
+	</noscript>
+	-->
+
+
+	<!-- DEALING WITH OLD IE /////////////////////////////////////////
+	Notify users they are not being served the best user experience
+	Note: styles for this are applied in development/sass/ie.scss
+	-->
+
+	<!--[if lt IE 9]>
+	<div id="outdated-browser-message">
+		<p aria-hidden="true">
+			Oops, it seems like you are using an <strong>outdated</strong> browser.
+			<a href="http://browsehappy.com/?locale=en" target="_blank">Please upgrade</a> to improve your experience.
+		</p>
+	</div>
+	<![endif]-->
+
+
+	<!-- SCREEN READER SUPPORT ///////////////////////////////////////
+	Add site/application information for SEO and screen readers
+	Note: needs further evaluation
+	<div class="any-surfer">
+
+		<h1>Short about {{ SITE-NAME }} title</h1>
+		<p>{{ DESCRIPTION }}</p>
+
+	</div>
+	-->
+
+
+	<!-- LET'S FLOW ////////////////////////////////////////////////// -->
+
+
+	<main>
+	</main>
+
+
+	<!-- SCRIPTS /////////////////////////////////////////////////////
+	Using 'gulp-usemin' to concatenate Javascript files in production
+	-->
+
+	<!-- build:js js/app.js -->
+
+		<!--libs-->
+		<script src="js/libs/handlebars-v2.0.0.js"></script>
+		<script src="js/libs/jquery-1.11.2.js"></script>
+		<script src="js/libs/cookie.js"></script>
+		<script src="js/libs/bean.min.js"></script>
+		<script src="js/libs/underscore.js"></script>
+		<script src="js/libs/backbone.js"></script>
+
+		<script src="js/libs/backbone-class.js"></script>
+		<script src="js/libs/SingletonBase.js"></script>
+
+		<!--templates-->
+		<script src="js/libs/templates.js"></script>
+
+		<!--models-->
+		<script src="js/models/User.js"></script>
+		<script src="js/models/Track.js"></script>
+
+		<!--services-->
+		<script src="js/services/UserService.js"></script>
+		<script src="js/services/PlaylistService.js"></script>
+
+		<!--repositories-->
+		<script src="js/repositories/UnitOfWork.js"></script>
+		<script src="js/repositories/JSONContext.js"></script>
+
+
+		<script src="js/repositories/UserRepository.js"></script>
+		<script src="js/repositories/PlaylistRepository.js"></script>
+
+		<!--viewcontrollers-->
+		<script src="js/views/MainViewController.js"></script>
+		<script src="js/views/HeaderView.js"></script>
+		<script src="js/views/LoginView.js"></script>
+		<script src="js/views/PlaylistView.js"></script>
+
+
+		<!--Main entry point-->
+		<script src="js/main.js"></script>
+
+	<!-- endbuild -->
+
+
+	<!-- GOOGLE ANALYTICS ////////////////////////////////////////////
+	- https://github.com/h5bp/html5-boilerplate/blob/master/dist/doc/extend.md
+	- http://mathiasbynens.be/notes/async-analytics-snippet#universal-analytics
+	- https://developers.google.com/analytics/devguides/collection/gajs/?hl=nl
+
+	Async Google Analytics - change UA-XXXXX-X to your site ID
+	<script>
+		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+		e.src='//www.google-analytics.com/analytics.js';
+		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+		ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+	</script>
+	-->
+
+
+</body>
+</html>

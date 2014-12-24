@@ -1,0 +1,205 @@
+//
+// LAYOUT ------------------------------------------------------------
+//
+
+html,
+body {
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+section {
+	width: 90%; // 288px @320
+	padding: 3em 0;
+	margin: auto;
+
+	@include FLOW-at(40em) { width: 30em; }
+}
+
+
+
+
+
+
+
+
+.row {
+
+}
+
+.row > * {
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// clearfix
+//
+
+.grid:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+
+
+
+
+
+
+//
+// http://gridinator.com/
+// 12-cols
+// column width: 55px;
+// column margin: 28px
+// container margin: 28px
+// ==> @1024px: 28px - grid (55px width 28px margin-left) - 28px
+//
+
+$grid-unit: 5.682%;     // * 12 = 68.1828% ==> 12-cols of 55px @1024px
+$grid-gutter: 2.89275%; // * 11 = 31.8285% ==> 11-margins of 28px @1024px
+
+
+@function FLOW-colspan($cols: 1) {
+	@return ($cols * $grid-unit) + FLOW-gutter($cols - 1);
+}
+
+@function FLOW-gutter($times: 1) {
+	@return ($times * $grid-gutter);
+}
+
+
+
+
+
+.grid {
+	max-width: 1024px; // total width = 1024 - (2 x 28px) = 968px
+	margin: auto;
+
+	background-image: url(../img/__grid.png);
+	background-size: 100%;
+
+
+	padding: 2em (28/1024 * 100%); //2.734375%;
+	//padding: 2em 2.5%; // 8px @320 ==> retina rounding errors ?!
+
+
+	//@include FLOW-at(64em, true) { padding: 2em 28px; }
+
+
+}
+
+
+
+
+.grid li {
+	//width: 5.682%; // * 12 = 68.1828% ==> 12-cols of 55px
+	//margin-left: 2.89275%; // * 11 = 31.8285%   ==> 11-margins of 28px
+
+	width: FLOW-colspan();
+	margin-left: FLOW-gutter();
+	margin-bottom: FLOW-gutter();
+
+
+
+	//width: 5.9215%;		 // 18px @ 320px  ==> retina rounding errors ?!
+	//margin-left: 2.635%; // 8px @ 320px     ==> retina rounding errors ?!
+
+	list-style: none;
+	float: left;
+
+	background: $ui-orange;
+}
+
+
+
+
+
+
+//
+// About ideal line length
+// - http://www.maxdesign.com.au/articles/em
+//
+// - min-width: 25em;
+// - max-width: 33em;
+//
+/*
+//.grid
+div {
+	//width: FLOW-colspan(12);
+
+	// @320
+	//width: 18em;
+
+	// landscape
+	min-width: 18em;
+	max-width: 30em;
+
+	@include FLOW-at(40em) { width: 30em; }
+
+	margin: auto;
+
+	//@include FLOW-at(40em) { width: FLOW-colspan(8); }
+
+	background: $white;
+}
+
+
+*/
+
+
+
+//.grid li:nth-child(6n + 1) {
+//	margin-left: 0;
+//}
+
+
+
+
+
+
+.grid li:nth-child(even) {
+	background: $ui-blue;
+}
+
+.grid li:first-child {
+	margin-left: 0;
+}
+
+
+
+
+

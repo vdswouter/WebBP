@@ -1,0 +1,109 @@
+// -------------------------------------------------------------------
+// :: ALERTS
+// -------------------------------------------------------------------
+
+@mixin FLOW-alert($_color: $font-color-medium, $_with-close-button: true) {
+
+	color: $_color;
+
+	// Default styling is
+	// based on font-colors
+
+	@if $_color == $font-color-medium {
+		$_color: $font-color;
+		border-color: $border-color;
+		background: rgba($_color, 0.06);
+
+	// UI-kit styling is uses the same
+	// opacity scale as font-colors
+
+	} @else {
+		border-color: rgba($_color, 0.24);
+		background: rgba($_color, 0.16);
+	}
+
+	// Overwrite button styling if a close-button
+	// (auto-hide) is present inside the alert
+
+	@if $_with-close-button {
+
+		& .button-close {
+			background: rgba($_color, 0.72);
+		}
+
+		.no-touch & .button-close:hover {
+			background: $_color;
+		}
+
+		& .button-close:active:active {
+			background: darken($_color, 7%);
+		}
+
+	}
+
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// Single-line alerts should be the same height as buttons
+// which is 5 x 1 base-line grid-unit
+// Default sizes: 40px/45px/50px
+//
+// IMPORTANT: classes described below are just examples
+// Cleanup & optimize when moving to production!
+
+.alert {
+	padding: 0.45em 0.7em;
+	border-radius: $border-radius;
+	border: 1px solid;
+	position: relative;
+}
+
+.alert h4 {
+	margin-right: 0.35em;
+	float: left;
+}
+
+.alert a {
+	color: inherit;
+}
+
+// Close button to auto-hide alerts
+// This will only be visible when
+// javascript is enabled in the client
+
+.alert .button-close {
+	font-size: 0.75em;
+	position: absolute;
+	right: 0.7em;
+	top: -0.4em;
+}
+
+.no-js .alert .button-close {
+	display: none;
+}
+
+// States
+
+.alert:not(.error):not(.warning):not(.success):not(.information) {
+	@include FLOW-alert;
+}
+
+.alert.error {
+	@include FLOW-alert($ui-red);
+}
+
+.alert.warning {
+	@include FLOW-alert($ui-orange);
+}
+
+.alert.success {
+	@include FLOW-alert($ui-green);
+}
+
+.alert.information {
+	@include FLOW-alert($ui-blue);
+}
+

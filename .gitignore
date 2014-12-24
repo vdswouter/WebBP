@@ -1,0 +1,5 @@
+.sass-cache/
+.temp/
+deploy/
+node_modules/
+.idea/

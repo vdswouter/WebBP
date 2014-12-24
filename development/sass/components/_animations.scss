@@ -1,0 +1,51 @@
+// -------------------------------------------------------------------
+// :: KEYFRAME ANIMATIONS
+// -------------------------------------------------------------------
+
+// Fade in & out - as used
+// to auto-hide alerts
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+ 		opacity: 1;
+	}
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(0, 0);
+	}
+	100% {
+ 		transform: scale(1, 1);
+	}
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+
+.fade-in,
+.fade-out {
+	animation: fade 150ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+	animation-fill-mode: forwards;
+}
+
+.scale-up,
+.scale-down {
+	animation: scale 150ms cubic-bezier(0.5, 0.2, 0.3, 1.0);
+	animation-fill-mode: forwards;
+}
+
+.fade-in,
+.scale-up {
+	animation-direction: normal;
+}
+
+.fade-out,
+.scale-down {
+	animation-direction: reverse;
+}

@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+// Globals
+
+@import "_globals";
+
+// Utils
+
+@import "utils/_debug";
+@import "utils/_placeholders";
+
+// Base
+
+@import "base/_normalize";
+@import "base/_typography";
+@import "base/_icons";
+@import "base/_images";
+@import "base/_lists";
+
+@import "base/_forms";
+@import "base/_layout";
+
+// Components
+
+@import "components/_alerts";
+@import "components/_animations";
+@import "components/_buttons";
+@import "components/_tooltips";
+
+
+
+
+
+.playlist{
+  list-style-type: none;
+  margin-top: 30px;
+  padding: 0;
+
+  li{
+	padding: 10px 30px;
+	border-top: 1px solid $border-color;
+	@include transition(background, 330ms, ease-in-out);
+	cursor: pointer;
+	&:hover{
+	  background-color: rgba($primary-color, 0.2);;
+	}
+  }
+}
+
+
+
+
+
+
+
+
+
+// To provide screen readers an optimal experience
+// add hidden DOM-elements with additional info
+// - http://css-tricks.com/places-its-tempting-to-use-display-none-but-dont
+//
+
+.is-hidden {
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+	position: absolute;
+	overflow: hidden;
+}
+
+
+

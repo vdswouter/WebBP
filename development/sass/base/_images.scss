@@ -1,0 +1,133 @@
+// -------------------------------------------------------------------
+// :: IMAGES
+// -------------------------------------------------------------------
+// Images are set out to be fluid by default
+// Inspired by the Inuit.css framework
+//
+// - https://github.com/csswizardry/inuit.css/blob/master/base/_images.scss
+// - http://demosthenes.info/blog/586/CSS-Fluid-Image-Techniques-for-Responsive-Site-Design
+// - http://www.stucox.com/blog/dont-squash-me-using-min-width-on-fluid-images
+
+img {
+	outline: 0;
+	border: 0;
+}
+
+img:not([width]):not([height]) {
+	width: 100%;
+	height: auto;
+}
+
+// Align non-fluid images
+// vertically to fit text
+
+img[width],
+img[height] {
+	vertical-align: top;
+}
+
+
+// -------------------------------------------------------------------
+// :: CONTEXTUAL IMAGES
+// -------------------------------------------------------------------
+
+figure {
+	margin: 0;
+	text-align: center;
+	display: block;
+}
+
+figure img {
+	border: 1px solid $white;
+	border-radius: $border-radius;
+	box-shadow: 0 0 0.4em $font-color-light;
+	display: block;
+}
+
+//figure cite {
+//
+//}
+
+
+// -------------------------------------------------------------------
+// :: OVERLAYS
+// -------------------------------------------------------------------
+// Mostly used in headers, heroes and/or mastheads
+// Image overlays should have an opacity between 20-60%
+// depending on context, for this we use font-color values
+
+.has-overlay {
+	position: relative;
+	color: $font-color-white;
+	background-position: center;
+	background-size: cover;
+	padding: 1em;
+}
+
+.has-overlay:before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	background-color: $border-color;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.has-overlay > * {
+	position: relative;
+	z-index: 1;
+
+	// White text might appear too bold
+	// when placed on a dark background
+	// Adjust font-weight to fix this
+
+	font-weight: 300;
+}
+
+
+// -------------------------------------------------------------------
+// :: DECORATED AND BLURRED IMAGES
+// -------------------------------------------------------------------
+// Custom shapes - note: webkit only
+//
+// - http://css-tricks.com/almanac/properties/f/filter
+// - http://nice-entity.com/shapes-symbols
+// - http://dev.w3.org/html5/html-author
+// - http://www.fileformat.info/info/unicode/char/search.htm
+
+.is-masked,
+.is-masked-text {
+	background-position: center;
+	background-size: cover;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.is-masked {
+	font-size: rem(66px);
+	line-height: 1.1;
+	@include FLOW-at($mobile) { font-size: rem(112px); }
+}
+
+.is-masked-text {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: rem(60px);
+	font-weight: 900;
+	@include FLOW-at($mobile) { font-size: rem(80px); }
+}
+
+// Default blur values for use in native applications, implementation
+// in web-technology is limited (webkit only), has it culprits and is
+// CPU-intensive. When used in applications it should be used appropriately.
+// Recommended values: 10pt blur radius + 10pt increase in saturation.
+
+.is-blurred {
+	height: 6em;
+	margin-top: 1em;
+	background-position: center;
+	background-size: cover;
+	-webkit-filter: blur(2px) saturate(1.1);
+}
+

@@ -1,0 +1,204 @@
+// -------------------------------------------------------------------
+// :: BUTTONS
+// -------------------------------------------------------------------
+// Use hyperlinks for navigation, buttons for everything else
+// Form buttons (input[type="submit", reset, ...) are normalized
+// in base/_forms.scss, but use .button classes for styling
+
+@include FLOW-normalize-buttons;
+
+
+// -------------------------------------------------------------------
+// :: PRIMARY BUTTON
+// -------------------------------------------------------------------
+// Solid button with full background color
+
+@mixin FLOW-button($_color: $white, $_background: $primary-color) {
+
+	$_lighter: lighten($_background, 5%);
+	$_darker: darken($_background, 7%);
+
+	color: $_color;
+	background: linear-gradient($_lighter, $_background);
+	border-bottom: 2px solid darken($_background, 7%);
+	text-shadow: 0 -1px 1px $font-color-light;
+
+	// Hover states are disabled
+	// by default on touch-devices
+
+	.no-touch &:not([disabled]):hover {
+		background: linear-gradient(lighten($_lighter, 10%), $_lighter);
+	}
+
+	// To override :hover properties we need to
+	// promote the importance of the :active state
+	// Doubling the declaration does exactly that
+	// but offers more flexibility as !important
+
+	&:not([disabled]):active:active {
+		background: linear-gradient($_darker, $_darker);
+		border-bottom-color: $_darker;
+	}
+
+}
+
+
+// -------------------------------------------------------------------
+// :: SECONDARY/FLAT BUTTON
+// -------------------------------------------------------------------
+// Outlined button with border and transparent background
+
+@mixin FLOW-button-secondary($_color: $primary-color, $_with-border: true) {
+
+	color: $_color;
+	background: transparent;
+
+	@if $_with-border {
+		border: 1px solid;
+	}
+
+	// Hover states are disabled
+	// by default on touch-devices
+
+	.no-touch &:not([disabled]):hover {
+		color: darken($_color, 5%);
+	}
+
+	&:not([disabled]):active {
+		background: rgba($_color, 0.2);
+	}
+
+}
+
+
+// -------------------------------------------------------------------
+// :: BUTTON EXTEND
+// -------------------------------------------------------------------
+// Extends base-styles to create squared and circular buttons
+
+@mixin FLOW-button-extend($_size: 5.75em, $_border-radius: $border-radius) {
+
+	width: $_size;
+	height: $_size;
+	line-height: 1;
+	word-wrap: break-word;
+	border-radius: $_border-radius;
+
+}
+
+
+// -------------------------------------------------------------------
+// :: CLASSES
+// -------------------------------------------------------------------
+// Button height should be 5 x 1 base-line grid-unit
+// Default sizes: 40px/45px/50px
+//
+// IMPORTANT: classes described below are just examples
+// Cleanup & optimize when moving to production!
+
+[class*='button'] {
+	cursor: pointer;
+	text-transform: none;
+	text-decoration: none;
+	vertical-align: middle;
+	display: inline-block;
+	border: none;
+
+	transition: color 120ms ease-in-out;
+}
+
+// Primary buttons - for primary
+// navigation and key-interactions
+
+.button {
+	@include FLOW-button;
+	padding: 0.45em 0.85em;
+	border-radius: $border-radius;
+}
+
+.button-pill {
+	@include FLOW-button;
+	padding: 0.45em 1.7em;
+	border-radius: 2em;
+}
+
+.button-square {
+	@include FLOW-button;
+	@include FLOW-button-extend;
+}
+
+.button-circle {
+	@include FLOW-button;
+	@include FLOW-button-extend($_border-radius: 50%);
+}
+
+// Secondary buttons - for in-context
+// interaction (eg. show/hide, load more)
+
+.button-secondary {
+	@include FLOW-button-secondary;
+	padding: 0.45em 0.85em;
+	border-radius: $border-radius;
+}
+
+.button-secondary-pill {
+	@include FLOW-button-secondary;
+	padding: 0.45em 1.7em;
+	border-radius: 2em;
+}
+
+.button-secondary-square {
+	@include FLOW-button-secondary;
+	@include FLOW-button-extend;
+}
+
+.button-secondary-circle {
+	@include FLOW-button-secondary;
+	@include FLOW-button-extend($_border-radius: 50%);
+}
+
+// Flat buttons - for smaller, grouped
+// interactions and/or in modal popups
+
+.button-flat {
+	@include FLOW-button-secondary($_with-border: false);
+	padding: 0.5em 0.85em;
+}
+
+// In-context buttons, build using
+// pseudo-elements and html-entities
+// - http://nice-entity.com/shapes-symbols
+// - http://dev.w3.org/html5/html-author/charref
+// - http://www.fileformat.info/info/unicode/char/search.htm
+
+.button-close,
+.button-plus,
+.button-min {
+	@include FLOW-button;
+	@include FLOW-button-extend(2em, 50%);
+	text-shadow: none;
+	border: none;
+	padding: 0;
+}
+
+.button-close:before {
+	content: '\2715';
+}
+
+.button-plus:before {
+	content: '\FF0B';
+}
+
+.button-min:before {
+	content: '\FF0D';
+}
+
+// Plus- and minus-signs are a smaller than the
+// default cross-sign, so we need to fine-tune
+
+.button-plus:before,
+.button-min:before {
+	font-size: 1.4em;
+	line-height: 1.15;
+}
+
