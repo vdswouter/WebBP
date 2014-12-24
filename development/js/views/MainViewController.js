@@ -35,6 +35,7 @@ var MainViewController = Backbone.View.extend({
         if(this.playlist){
             this.removeChild(this.playlist);
         }
+        this.header.setBackground("img/image.jpg");
         this.addChild(this.loginForm);
     },
 
