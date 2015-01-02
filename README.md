@@ -74,6 +74,18 @@ Changelog (from v0.1 - using Grunt)
 * Switched to rems for base typography (utility methods are provided)
 
 
+Learnings:
+==========
+Gwen
+----
+* Lodash vs Underscore?
+* Require?
+* Bean.js events vs Backbone events. wat is de meerwaarde?
+* memory management?
+* less use of .getInstance();
+* marionette voor memorymanagement
+
+
 Contact
 -------
 

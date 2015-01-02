@@ -6,7 +6,8 @@ var LoginView = Backbone.View.extend({
     id: "login-form",
     template: tpl.login,
 
-    initialize: function(){
+
+    initialize: function () {
         _.bindAll(this);
 
         this.bind();
@@ -17,27 +18,27 @@ var LoginView = Backbone.View.extend({
         "click .js-btn-login": "loginClicked"
     },
 
-    bind: function(){
+    bind: function () {
         bean.on(UserService.getInstance(), "LOGIN_FAILED", this.showError);
         bean.on(UserService.getInstance(), "LOGIN_SUCCESS", this.removeFromParrent);
     },
 
-    render: function(){
+    render: function () {
         this.$el.html(this.template());
     },
 
-    removeFromParrent: function(){
+    removeFromParrent: function () {
         this.$el.remove();
     },
 
-    showError: function(data){
+    showError: function (data) {
 
-        this.$el.prepend("<div class='alert error'>"+data.error+"</div>");
+        this.$el.prepend("<div class='alert error'>" + data.error + "</div>");
         this.$el.find(".js-btn-login").fadeTo(330, 1);
 
     },
 
-    loginClicked: function(e){
+    loginClicked: function (e) {
         e.preventDefault();
 
         this.$el.find(".js-btn-login").fadeTo(330, 0.2);

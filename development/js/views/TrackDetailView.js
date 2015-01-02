@@ -6,7 +6,7 @@ var TrackDetailView = Backbone.View.extend({
     className: "overlay",
     template: tpl.trackDetail,
 
-    initialize: function(){
+    initialize: function () {
         _.bindAll(this);
 
         this.bind();
@@ -17,15 +17,15 @@ var TrackDetailView = Backbone.View.extend({
         "click .button-close": "removeFromParrent"
     },
 
-    bind: function(){
+    bind: function () {
 
     },
 
-    render: function(){
+    render: function () {
         this.$el.html(this.template(PlaylistService.getInstance().selectedTrack.toJSON()));
     },
 
-    removeFromParrent: function(){
+    removeFromParrent: function () {
         this.$el.remove();
     }
 });

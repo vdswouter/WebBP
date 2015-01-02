@@ -6,7 +6,7 @@ var HeaderView = Backbone.View.extend({
     className: "has-overlay",
     template: tpl.header,
 
-    initialize: function(){
+    initialize: function () {
         _.bindAll(this);
         this.setBackground("img/image.jpg");
 
@@ -18,37 +18,37 @@ var HeaderView = Backbone.View.extend({
         'click .logout': "logoutClicked"
     },
 
-    bind: function(){
+    bind: function () {
         bean.on(UserService.getInstance(), "LOGIN_SUCCESS LOGOUT_SUCCESS", this.render);
     },
 
-    render: function(){
+    render: function () {
         this.$el.html(this.template({loggedin: UserService.getInstance().isLoggedIn}));
-        if(UserService.getInstance().isLoggedIn){
+        if (UserService.getInstance().isLoggedIn) {
             this.setUser();
-        }else{
+        } else {
             this.setInfo("Try to login with 'test' - 'test'. It always works.");
         }
     },
 
-    logoutClicked: function(){
+    logoutClicked: function () {
         UserService.getInstance().logout();
     },
 
-    setUser: function(){
+    setUser: function () {
         var username = UserService.getInstance().loggedinUser.get('name');
         this.$el.find('.name').html(username);
     },
 
-    setInfo: function(info){
+    setInfo: function (info) {
         this.$el.find("p.info").html(info);
     },
 
-    setBackground : function(url){
-        if(url == null){
+    setBackground: function (url) {
+        if (url == null) {
             url = PlaylistService.getInstance().selectedTrack.get('image');
         }
 
-        this.$el.css("background-image","url("+url+")");
+        this.$el.css("background-image", "url(" + url + ")");
     }
 });

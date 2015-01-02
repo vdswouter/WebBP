@@ -1,3 +1,4 @@
+//INITIAL SETUP OF LIBS
 $.cookie.raw = true;
 
 

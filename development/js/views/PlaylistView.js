@@ -6,7 +6,7 @@ var PlaylistView = Backbone.View.extend({
     id: "playlist",
     template: tpl.playlistMenu,
 
-    initialize: function(){
+    initialize: function () {
         _.bindAll(this);
 
         this.bind();
@@ -14,23 +14,23 @@ var PlaylistView = Backbone.View.extend({
     },
 
     events: {
-        'click nav>button':'buttonClicked',
+        'click nav>button': 'buttonClicked',
         'click .track': 'trackClicked'
 
     },
 
-    bind: function(){
+    bind: function () {
 
     },
-    
-    trackClicked: function(e){
+
+    trackClicked: function (e) {
         var tracknumber = $(e.currentTarget).attr('data-tracknumber');
         PlaylistService.getInstance().setSelectedTrack(tracknumber);
 
         bean.fire(this, "TRACK_CLICKED");
     },
-    
-    buttonClicked: function(e){
+
+    buttonClicked: function (e) {
         $('nav>button').removeClass('button-pill').addClass('button-secondary-pill');
         $(e.currentTarget).removeClass('button-secondary-pill').addClass('button-pill');
         this.$loader.removeClass('is-hidden');
@@ -40,13 +40,13 @@ var PlaylistView = Backbone.View.extend({
         PlaylistService.getInstance().loadPlaylist(playlistname, this.playlistLoaded);
 
     },
-    
-    playlistLoaded: function(){
+
+    playlistLoaded: function () {
         this.$el.find('.playlist').remove();
 
-        var playlist =[];
+        var playlist = [];
 
-        $(PlaylistService.getInstance().currentPlaylist).each(function(i){
+        $(PlaylistService.getInstance().currentPlaylist).each(function (i) {
             var songdata = PlaylistService.getInstance().currentPlaylist[i].toJSON();
             songdata.i = i;
             playlist.push(songdata);
@@ -58,13 +58,13 @@ var PlaylistView = Backbone.View.extend({
         this.$el.append(list);
     },
 
-    render: function(){
+    render: function () {
         this.$el.html(this.template());
 
         this.$loader = this.$el.find('.playlist-preloader');
     },
 
-    removeFromParrent: function(){
+    removeFromParrent: function () {
         this.$el.remove();
     }
 });
