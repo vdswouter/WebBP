@@ -1,7 +1,7 @@
 /**
  * Created by wouter on 22/12/14.
  */
-var LoginView = Backbone.View.extend({
+var LoginViewController = Backbone.View.extend({
     tagName: "section",
     id: "login-form",
     template: tpl.login,
@@ -10,7 +10,7 @@ var LoginView = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
-        this.bind();
+        this.addEventListeners();
         this.render();
     },
 
@@ -18,7 +18,7 @@ var LoginView = Backbone.View.extend({
         "click .js-btn-login": "loginClicked"
     },
 
-    bind: function () {
+    addEventListeners: function () {
         bean.on(UserService.getInstance(), "LOGIN_FAILED", this.showError);
         bean.on(UserService.getInstance(), "LOGIN_SUCCESS", this.removeFromParrent);
     },
@@ -47,9 +47,6 @@ var LoginView = Backbone.View.extend({
         var user = this.$el.find('input[name=login-username]').val();
         var pass = this.$el.find('input[name=login-password]').val();
 
-        bean.fire(this, "LOGIN_CLICKED", {
-            user: user,
-            pass: pass
-        });
+        UserService.getInstance().login()
     }
 });

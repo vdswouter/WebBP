@@ -1,7 +1,7 @@
 /**
  * Created by wouter on 24/12/14.
  */
-var PlaylistView = Backbone.View.extend({
+var PlaylistViewController = Backbone.View.extend({
     tagName: "section",
     id: "playlist",
     template: tpl.playlistMenu,
@@ -9,7 +9,7 @@ var PlaylistView = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
-        this.bind();
+        this.addEventListeners();
         this.render();
     },
 
@@ -19,7 +19,7 @@ var PlaylistView = Backbone.View.extend({
 
     },
 
-    bind: function () {
+    addEventListeners: function () {
 
     },
 
@@ -51,8 +51,9 @@ var PlaylistView = Backbone.View.extend({
             songdata.i = i;
             playlist.push(songdata);
         });
+        console.log(PlaylistService.getInstance().currentPlaylist);
 
-        var list = tpl.playlist({tracks: playlist})
+        var list = tpl.playlist({tracks: playlist});
 
         this.$loader.addClass('is-hidden');
         this.$el.append(list);

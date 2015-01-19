@@ -15,20 +15,25 @@ var UserService = Backbone.Class.extend({
 
     },
 
-    login: function(data){
+    login: function(username, password){
 
-        var that = this;
-        UnitOfWork.getInstance().userRepository.getUserWithUserNameAndPassword(data.user, data.pass, function(user, error){
+        if(this.loggedinUser != null){
+            bean.fire(this, "LOGIN_SUCCESS");
+            return;
+        }
+
+        var self = this;
+        UnitOfWork.getInstance().userRepository.getUserWithUserNameAndPassword(username, password, function(user, error){
             if(error == null){
-                that.loggedinUser = user;
-                that.isLoggedIn = true;
+                self.loggedinUser = user;
+                self.isLoggedIn = true;
                 $.cookie('loggedinUser',JSON.stringify(user.toJSON()));
                 $.cookie("loggedIn", 1);
-                bean.fire(that, "LOGIN_SUCCESS");
+                bean.fire(self, "LOGIN_SUCCESS");
 
             }else{
 
-                bean.fire(that, "LOGIN_FAILED", {error: error});
+                bean.fire(self, "LOGIN_FAILED", {error: error});
 
             }
         });

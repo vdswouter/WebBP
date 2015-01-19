@@ -5,7 +5,7 @@ var MainViewController = Backbone.View.extend({
     initialize: function () {
         console.log("--- hello world ---");
         _.bindAll(this);
-        this.header = new HeaderView();
+        this.header = new HeaderViewController();
         this.addChild(this.header);
 
         if (!UserService.getInstance().isLoggedIn) {
@@ -14,24 +14,23 @@ var MainViewController = Backbone.View.extend({
             this.startApp();
         }
 
-        this.bind();
+        this.addEventListeners();
         this.render();
     },
 
-    bind: function () {
+    addEventListeners: function () {
         bean.on(UserService.getInstance(), "LOGOUT_SUCCESS", this.showLoginForm);
         bean.on(UserService.getInstance(), "LOGIN_SUCCESS", this.startApp);
     },
 
     showTrackDetail: function () {
-        this.trackDetail = new TrackDetailView();
+        this.trackDetail = new TrackDetailViewController();
         this.header.setBackground();
         this.addChild(this.trackDetail);
     },
 
     showLoginForm: function () {
-        this.loginForm = new LoginView();
-        bean.on(this.loginForm, "LOGIN_CLICKED", UserService.getInstance().login);
+        this.loginForm = new LoginViewController();
         if (this.playlist) {
             this.removeChild(this.playlist);
         }
@@ -41,7 +40,7 @@ var MainViewController = Backbone.View.extend({
 
     startApp: function () {
         console.log('startapp');
-        this.playlist = new PlaylistView();
+        this.playlist = new PlaylistViewController();
         bean.on(this.playlist, "TRACK_CLICKED", this.showTrackDetail);
         if (this.loginForm) {
             this.removeChild(this.loginForm);

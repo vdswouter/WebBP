@@ -1,7 +1,7 @@
 /**
  * Created by wouter on 24/12/14.
  */
-var TrackDetailView = Backbone.View.extend({
+var TrackDetailViewController = Backbone.View.extend({
     tagName: "div",
     className: "overlay",
     template: tpl.trackDetail,
@@ -9,7 +9,7 @@ var TrackDetailView = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
-        this.bind();
+        this.addEventListeners();
         this.render();
     },
 
