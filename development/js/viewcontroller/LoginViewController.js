@@ -47,6 +47,6 @@ var LoginViewController = Backbone.View.extend({
         var user = this.$el.find('input[name=login-username]').val();
         var pass = this.$el.find('input[name=login-password]').val();
 
-        UserService.getInstance().login()
+        UserService.getInstance().login(user, pass);
     }
 });

@@ -11,9 +11,9 @@ this["tpl"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
   return "<form action=\"\">\n    <input type=\"text\" name=\"login-username\" placeholder=\"Username\"/><br/>\n    <input type=\"text\" name=\"login-password\" placeholder=\"Password\"/><br/>\n    <input type=\"submit\" class=\"button js-btn-login\" value=\"Login\" />\n</form>\n";
   },"useData":true});
 this["tpl"]["playlist"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing;
   return "        <li class=\"track\" data-tracknumber=\""
-    + escapeExpression(((helper = (helper = helpers.i || (depth0 != null ? depth0.i : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"i","hash":{},"data":data}) : helper)))
+    + escapeExpression(lambda((data && data.index), depth0))
     + "\">\n            <h4>"
     + escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"title","hash":{},"data":data}) : helper)))
     + "</h4>\n            <h5>"
@@ -21,7 +21,7 @@ this["tpl"]["playlist"] = Handlebars.template({"1":function(depth0,helpers,parti
     + "</h5>\n        </li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
   var stack1, buffer = "\n<ul class=\"playlist\">\n";
-  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.tracks : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  stack1 = helpers.each.call(depth0, ((stack1 = (depth0 != null ? depth0.playlist : depth0)) != null ? stack1.tracks : stack1), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</ul>";
 },"useData":true});

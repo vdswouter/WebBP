@@ -13,8 +13,13 @@ var JSONContext = Backbone.Class.extend({
 
     getJSON: function(query, callback){
         $.ajax({
-            url: this.rootURL + query,
+            headers: { "Accept": "application/json"},
+            url: this.rootURL + query + "?callback=?",
             method: "GET",
+            crossDomain: true,
+            beforeSend: function(xhr){
+                xhr.withCredentials = true;
+            },
             success: function(data){
                 return callback(data);
             }

@@ -85,9 +85,29 @@ Gwen
 * less use of .getInstance();
 * marionette voor memorymanagement
 
+Wim
+---
+* _bindAll vs custom method this.bind is verwarrend.
+* event LoginClicked hernoemen in MainViewController
+* logica login herbekijken. Login Clicked Event verwijderen en loginservice rechtstreeks vanuit de loginviewcontroller aanspreken.
+* alle classes in views hernoemen naar ..ViewController
+* in UserService is er een instance loggedInUser, de creatie daarvan moet gebeuren in de repository.
+* UI logica (welke view wanneer adden of removen) is eigenlijk een taak voor Router?
+Zit nu in MainViewController en ook in de specifieke ViewControllers
+* toevoegen aan Model een nieuw model Playlist (heeft een proportie een array van songs)
+cfr opvangen playlist data en JSON doorgeven aan template herbekijken.
+* Wrapper in models schrijven om Backbone model te kunnen blijven gebruiken?
+	* property extra voor attributes
+	* Nieuwe klasse Model die een Backbone model als property heeft.
+* Convert schrijven in PlayListRepository
+
 
 Contact
 -------
-
+#### Frontend CSS
 * @gwenvanhee - gwen@littlemissrobot.com    
 * @vdswouter - wouter@littlemissrobot.com
+
+#### OOP logic
+* @vdswouter - wouter@littlemissrobot.com
+* @wimvanhenden - wim@littlemissrobot.com

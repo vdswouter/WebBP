@@ -9,6 +9,8 @@ var PlaylistViewController = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
+        this.playlistService = PlaylistService.getInstance();
+
         this.addEventListeners();
         this.render();
     },
@@ -20,14 +22,12 @@ var PlaylistViewController = Backbone.View.extend({
     },
 
     addEventListeners: function () {
-
+        bean.on(this.playlistService, "PLAYLIST_LOADED", this.playlistLoaded);
     },
 
     trackClicked: function (e) {
         var tracknumber = $(e.currentTarget).attr('data-tracknumber');
-        PlaylistService.getInstance().setSelectedTrack(tracknumber);
-
-        bean.fire(this, "TRACK_CLICKED");
+        this.playlistService.setSelectedTrack(tracknumber);
     },
 
     buttonClicked: function (e) {
@@ -36,24 +36,16 @@ var PlaylistViewController = Backbone.View.extend({
         this.$loader.removeClass('is-hidden');
 
         var playlistname = $(e.currentTarget).attr('data-playlist');
-
-        PlaylistService.getInstance().loadPlaylist(playlistname, this.playlistLoaded);
+        this.playlistService.loadPlaylist(playlistname);
 
     },
 
     playlistLoaded: function () {
         this.$el.find('.playlist').remove();
 
-        var playlist = [];
-
-        $(PlaylistService.getInstance().currentPlaylist).each(function (i) {
-            var songdata = PlaylistService.getInstance().currentPlaylist[i].toJSON();
-            songdata.i = i;
-            playlist.push(songdata);
+        var list = tpl.playlist({
+            playlist: this.playlistService.currentPlaylist.toJSON()
         });
-        console.log(PlaylistService.getInstance().currentPlaylist);
-
-        var list = tpl.playlist({tracks: playlist});
 
         this.$loader.addClass('is-hidden');
         this.$el.append(list);

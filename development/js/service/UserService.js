@@ -10,7 +10,7 @@ var UserService = Backbone.Class.extend({
 
         this.loggedinUser = null;
         if(this.isLoggedIn){
-            this.loggedinUser = new User().set(JSON.parse($.cookie('loggedinUser')));
+            this.loggedinUser = UnitOfWork.getInstance().userRepository.getUserFromCookie();
         }
 
     },

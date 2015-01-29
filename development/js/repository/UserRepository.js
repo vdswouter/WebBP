@@ -18,6 +18,10 @@ var UserRepository = Backbone.Class.extend({
             return callback(usr, json.ERROR);
             
         });
+    },
+
+    getUserFromCookie: function(){
+        return new User().set(JSON.parse($.cookie('loggedinUser')));
     }
 
 });

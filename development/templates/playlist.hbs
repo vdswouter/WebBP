@@ -3,8 +3,8 @@
 --}}
 
 <ul class="playlist">
-    {{#each tracks}}
-        <li class="track" data-tracknumber="{{i}}">
+    {{#each playlist.tracks}}
+        <li class="track" data-tracknumber="{{@index}}">
             <h4>{{title}}</h4>
             <h5>{{artist}}</h5>
         </li>

@@ -12,14 +12,16 @@ var PlaylistService = Backbone.Class.extend({
     },
 
     setSelectedTrack: function(tracknumber) {
-        this.selectedTrack = this.currentPlaylist[tracknumber];
+        this.selectedTrack = this.currentPlaylist.get('tracks')[tracknumber];
+        bean.fire(this, "TRACK_SELECTED");
     },
 
-    loadPlaylist: function(playlistname, callback){
-        var that = this;
+    loadPlaylist: function(playlistname){
+        var self = this;
         UnitOfWork.getInstance().playlistRepository.getPlaylist(playlistname, function(playlist){
-            that.currentPlaylist = playlist;
-            return callback();
+            self.currentPlaylist = playlist;
+            console.log(self.currentPlaylist.get('tracks').length);
+            bean.fire(self, "PLAYLIST_LOADED");
         });
     }
 

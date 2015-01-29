@@ -41,7 +41,7 @@ var MainViewController = Backbone.View.extend({
     startApp: function () {
         console.log('startapp');
         this.playlist = new PlaylistViewController();
-        bean.on(this.playlist, "TRACK_CLICKED", this.showTrackDetail);
+        bean.on(PlaylistService.getInstance(), "TRACK_SELECTED", this.showTrackDetail);
         if (this.loginForm) {
             this.removeChild(this.loginForm);
         }
