@@ -20,11 +20,9 @@ var PlaylistRepository = Backbone.Class.extend({
             var playlistJSON = json.playlist[playlistname];
             self._playlist = null;
             self._playlist = new Playlist();
-            //console.log(self._playlist);
 
             self._playlist.set('playlistname', playlistname);
 
-            console.log(self._playlist.get('tracks').length);
             for(var i = 0; i < playlistJSON.length; i++){
                 var track = UnitOfWork.getInstance().trackRepository.getTrackFromObject(playlistJSON[i]);
                 self._playlist.addTrack(track);

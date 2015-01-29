@@ -20,7 +20,6 @@ var PlaylistService = Backbone.Class.extend({
         var self = this;
         UnitOfWork.getInstance().playlistRepository.getPlaylist(playlistname, function(playlist){
             self.currentPlaylist = playlist;
-            console.log(self.currentPlaylist.get('tracks').length);
             bean.fire(self, "PLAYLIST_LOADED");
         });
     }
