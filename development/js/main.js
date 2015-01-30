@@ -22,6 +22,7 @@ $.cookie.raw = true;
 
 //Router.getInstance().navigate('');
 
+//Initialize the app. This is the main entrypoint.
 MainViewController.getInstance();
 
 Backbone.history.start();

@@ -1,13 +1,22 @@
 var MainViewController = Backbone.View.extend({
+    // View Backbone referenceguide to see which functions and vars
+    // are Backbone syntax
+    // http://backbonejs.org/
     tagName: "section",
     className: "js-main-vc",
 
     initialize: function () {
-        console.log("--- hello world ---");
+        // Constructor
+
+        // bindAll enables us to use the 'this' keyword in encapsulated functions
         _.bindAll(this);
+
+        // Load the Header + put it on the screen.
         this.header = new HeaderViewController();
         this.addChild(this.header);
 
+        // Check if user is logged in and decide if we show the loginform
+        // or go directly to the app.
         if (!UserService.getInstance().isLoggedIn) {
             this.showLoginForm();
         } else {
@@ -19,12 +28,17 @@ var MainViewController = Backbone.View.extend({
     },
 
     addEventListeners: function () {
+        // this could be fixed by a router
         bean.on(UserService.getInstance(), "LOGOUT_SUCCESS", this.showLoginForm);
         bean.on(UserService.getInstance(), "LOGIN_SUCCESS", this.startApp);
     },
 
     showTrackDetail: function () {
+        // Loads the popup, The popup itself gets its data from service layers.
+        // so no data is send to the class.
         this.trackDetail = new TrackDetailViewController();
+        
+        // the header loads the images from the service if no data is passed
         this.header.setBackground();
         this.addChild(this.trackDetail);
     },
@@ -39,8 +53,9 @@ var MainViewController = Backbone.View.extend({
     },
 
     startApp: function () {
-        console.log('startapp');
         this.playlist = new PlaylistViewController();
+
+        // could be replaced by routing
         bean.on(PlaylistService.getInstance(), "TRACK_SELECTED", this.showTrackDetail);
         if (this.loginForm) {
             this.removeChild(this.loginForm);
@@ -62,6 +77,8 @@ var MainViewController = Backbone.View.extend({
     },
 
     render: function () {
+        // self rendering can be discussed.
+
         $('main').html(this.el);
     }
 

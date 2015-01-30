@@ -9,6 +9,8 @@ var TrackDetailViewController = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
+        // this class can just be called and will get the data from the
+        // service by itself. so no parameters or setters are needed.
         this.playlistService = PlaylistService.getInstance();
 
         this.addEventListeners();

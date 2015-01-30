@@ -7,8 +7,8 @@ var JSONContext = Backbone.Class.extend({
 
     initialize: function(){
 
-        //THIS IS A FAKE CLASS THAT NORMALLY SHOULD DO THE CONNECTION WITH THE DATABASE
-        //TODO: Database connection, bindvalues, query generation
+        // THIS IS A FAKE CLASS THAT NORMALLY SHOULD DO THE CONNECTION WITH THE DATABASE
+        // TODO: Database connection, bindvalues, query generation
     },
 
     getJSON: function(query, callback){
@@ -23,7 +23,7 @@ var JSONContext = Backbone.Class.extend({
             success: function(data){
                 return callback(data);
             }
-        })
+        });
     },
 
     getJSONfake: function(query, callback){

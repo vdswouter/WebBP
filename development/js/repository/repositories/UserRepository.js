@@ -8,6 +8,7 @@ var UserRepository = Backbone.Class.extend({
     getUserWithUserNameAndPassword: function(username, password, callback){
         this.context.getJSONfake("/users/"+username+"/"+password, function(json){
 
+            // convert
             var usr = new User({
                 id: json.id,
                 name: json.firstname,

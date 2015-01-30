@@ -27,7 +27,7 @@ var PlaylistRepository = Backbone.Class.extend({
                 var track = UnitOfWork.getInstance().trackRepository.getTrackFromObject(playlistJSON[i]);
                 self._playlist.addTrack(track);
             }
-            //console.log(self._playlist);
+
             return callback(self._playlist);
         });
     }

@@ -33,6 +33,7 @@ var Playlist = Backbone.Model.extend({
             tracks: []
         };
 
+        // convert submodels to json for templates
         for(var i = 0; i < this.get('tracks').length; i++){
             var t = this.get('tracks')[i];
             json.tracks.push(t.toJSON());

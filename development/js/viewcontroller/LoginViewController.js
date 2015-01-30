@@ -10,6 +10,8 @@ var LoginViewController = Backbone.View.extend({
     initialize: function () {
         _.bindAll(this);
 
+        this.userService = UserService.getInstance();
+
         this.addEventListeners();
         this.render();
     },
@@ -19,16 +21,22 @@ var LoginViewController = Backbone.View.extend({
     },
 
     addEventListeners: function () {
-        bean.on(UserService.getInstance(), "LOGIN_FAILED", this.showError);
-        bean.on(UserService.getInstance(), "LOGIN_SUCCESS", this.removeFromParrent);
+        bean.on(this.userService, "LOGIN_FAILED", this.showError);
     },
 
     render: function () {
         this.$el.html(this.template());
     },
 
-    removeFromParrent: function () {
-        this.$el.remove();
+    reset: function () {
+        console.log('reset');
+        //reset tot default values
+        this.$el.find(".js-btn-login").fadeTo(10, 1);
+        this.$el.find(".alert").remove();
+
+        this.$el.find('input[name=login-username]').val('');
+        this.$el.find('input[name=login-password]').val('');
+
     },
 
     showError: function (data) {
@@ -47,6 +55,6 @@ var LoginViewController = Backbone.View.extend({
         var user = this.$el.find('input[name=login-username]').val();
         var pass = this.$el.find('input[name=login-password]').val();
 
-        UserService.getInstance().login(user, pass);
+        this.userService.login(user, pass);
     }
 });
